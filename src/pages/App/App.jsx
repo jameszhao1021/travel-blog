@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import './App.css'
-import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+
+import MyBlog from '../MyBlogPage/MyBlogPage';
+import HomePage from '../HomePage/HomePage';
+import Community from '../CommunityPage/CommunityPage';
+import Gallery from '../GalleryPage/GalleryPage'
 import { Routes, Route } from 'react-router-dom';
 import NavBar from '../../compoments/NavBar';
 import { getUser } from '../../utilities/users-service';
@@ -14,24 +16,35 @@ function App() {
   const [user, setUser] = useState(getUser());
 
   return (
-    <main className='App'>
+
+    <div className='container container-fluid'>
+      <>
+        <NavBar user={user} setUser={setUser} />
+
+      </>
       {
-        user?(
+        user ? (
           <>
-          <NavBar user={user} setUser={setUser}/>
-          <Routes>
-            
-             <Route path='/orders/new' element={<NewOrderPage />}/>
-             <Route path='/orders' element={<OrderHistoryPage />}/>
-          </Routes>
+
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/community' element={<Community />} />
+              <Route path='/gallery' element={<Gallery />} />
+              <Route path='/myblog' element={<MyBlog />} />
+            </Routes>
           </>
-        ):
-        (
-          <AuthPage setUser={setUser}/>
-        )
+        ) :
+          (
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/community' element={<Community />} />
+              <Route path='/gallery' element={<Gallery />} />
+            </Routes>
+          )
       }
-    </main>
+    </div>
   )
 }
 
 export default App;
+
