@@ -1,7 +1,8 @@
 import React from "react";
 import './myBlogPage.css';
+import BlogCard from "../../compoments/BlogCard";
 
-function MyBlogPage(){
+function MyBlogPage({user}){
 
 
     return(
@@ -9,7 +10,7 @@ function MyBlogPage(){
         
         <div className="row mt-3 mb-3">
             <div className="col-sm profile">
-                <div>Username</div>
+                <div>{user.name}</div>
                 <div><img src="../../../public/images/profile.png" className="profileImage"/></div>
                 <div>Bio</div>
             </div>
@@ -42,12 +43,12 @@ function MyBlogPage(){
         </div>
 
         <div className="row">
-            <div >Article Card goes here</div>
+            <BlogCard />
         </div>
         
         </>
-    )
-}
+    );
+};
 
 
-export default MyBlogPage
+export default MyBlogPage;

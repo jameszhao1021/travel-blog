@@ -30,7 +30,7 @@ function App() {
               <Route path='/' element={<HomePage />} />
               <Route path='/community' element={<Community />} />
               <Route path='/gallery' element={<Gallery />} />
-              <Route path='/myblog' element={<MyBlog />} />
+              <Route path='/myblog' element={<MyBlog user={user}/>} />
             </Routes>
           </>
         ) :
