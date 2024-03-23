@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import BlogCard from "../../compoments/BlogCard";
 import './myBlogPage.css';
 
-function MyBlogPage({ uploadImage}){
+function MyBlogPage({ user }){
 
-    const [blogs, setBlogs] = useState([]);
+    
 
     // useEffect(() => {
     //     blogsAPI.getBlogs().then((blogs) => {
@@ -20,7 +20,7 @@ function MyBlogPage({ uploadImage}){
 
             <div className="row mt-3 mb-3">
                 <div className="col-sm profile">
-                    <div>username</div>
+                    <div>{user.name}</div>
                     <div><img src="../../../public/images/profile.png" className="profileImage" alt="Profile" /></div>
                     <div>Bio</div>
                 </div>

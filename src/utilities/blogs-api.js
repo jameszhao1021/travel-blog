@@ -8,7 +8,7 @@ export function getBlogs() {
   }
 
 export function createBlog(blogForm) {
-  console.log('check adding feature')
+  console.log('check adding feature');
     return sendRequest(BASE_URL, 'POST', blogForm);
 }
   

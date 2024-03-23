@@ -15,8 +15,8 @@ function BlogForm({uploadImage, blogs, setBlogs}){
     const [selectedCountry, setSelectedCountry] = useState(null);
 
     async function addBlog(blog) {
-        const newBlog = await blogsAPI.createBlog(blog);
-        setBlogs([...blogs, newBlog]);
+        const newBlogData = await blogsAPI.createBlog(blog);
+        setBlogs(prevBlogs => [...prevBlogs, newBlogData]);
     }
 
 
@@ -48,7 +48,7 @@ function BlogForm({uploadImage, blogs, setBlogs}){
     }
 
     return (
-        <div className='container'>
+        <div className="container" style={{ maxHeight: '80vh', overflowY: 'auto' }}>
             <form className='row d-flex flex-column' autoComplete="off" onSubmit={handleSubmit}>
 
                 <div className='col-lg-6 d-flex align-items-center gap-3'>

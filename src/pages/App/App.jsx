@@ -15,6 +15,7 @@ import BlogForm from '../../compoments/BlogForm';
 function App() {
 
   const [user, setUser] = useState(getUser());
+  const [blogs, setBlogs] = useState([]);
 
   const uploadImage = async (image) => {
 		const data = new FormData()
@@ -43,8 +44,8 @@ function App() {
               <Route path='/' element={<HomePage />} />
               <Route path='/community' element={<Community />} />
               <Route path='/gallery' element={<Gallery />} />
-              <Route path='/myblog' element={<MyBlogPage uploadImage={uploadImage}/>} />
-              <Route path='/myblog/new' element={<BlogForm uploadImage={uploadImage} />} />
+              <Route path='/myblog' element={<MyBlogPage user={user} blogs={blogs} setBlogs={setBlogs} />} />
+              <Route path='/myblog/new' element={<BlogForm uploadImage={uploadImage} setBlogs={setBlogs} />} />
             </Routes>
           </>
         ) :
