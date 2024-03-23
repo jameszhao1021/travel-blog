@@ -1,0 +1,38 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px ;
+    
+}
+
+.home-page h1 {
+    margin-bottom: 30px; 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+ 
+}
+
+.home-page p {
+   font-size: 20px;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin: 10px 100px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.home-page-pic {
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    margin: 100px;
+   
+}
+
+.home-page-pic img {
+    width: auto; 
+    height: 100px;
+    object-fit: cover; 
+}

@@ -1,0 +1,28 @@
+.form-control.me-2 {
+    width: 180px; /* Reduce width */
+    height: 30px;
+    padding: 10px; /* Adjust padding */
+    font-size: 12px; /* Smaller font size */
+    margin: 0 0 0 50px;
+   
+
+}
+.btn.btn-outline-success {
+    padding: 5px 15px; /* Adjust padding */
+    font-size: 12px; /* Smaller font size */
+    height: 30px;
+    margin: 1px 1px 1px -12px;
+   
+}
+.bg-dark .form-control::placeholder {
+    color: #ccc; /* Light gray color for visibility */
+}
+
+.navbar-narrower {
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+}
+
+.navbar-custom {
+    font-size: 0.8rem; /* Adjust the size as needed */
+}
