@@ -48,8 +48,8 @@ function BlogForm({uploadImage, blogs, setBlogs}){
     }
 
     return (
-        <div className='row'>
-            <form className='container d-flex flex-column' autoComplete="off" onSubmit={handleSubmit}>
+        <div className='container'>
+            <form className='row d-flex flex-column' autoComplete="off" onSubmit={handleSubmit}>
 
                 <div className='col-lg-6 d-flex align-items-center gap-3'>
                     <CountrySelectForm handleChange={handleChange} newBlog={newBlog} setNewBlog={setNewBlog} selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry}/>
@@ -60,12 +60,12 @@ function BlogForm({uploadImage, blogs, setBlogs}){
                 <div className=' d-flex align-items-center gap-3'>
                     <input type="file" name="preview" onChange={handleChange} />
                     {/* <button onClick={handleUpload}>Upload</button> */}
-                    <label>Upload preview piacture</label>
+                    <label>Upload preview picture</label>
                 </div>
                 <input type="text" name='title' placeholder='Type your title here' value={newBlog.title} onChange={handleChange} />
                 <textarea name="text" id="text" rows='20' placeholder='Write your blog here' value={newBlog.text} onChange={handleChange}></textarea>
-                <div className='justify-content-center'>
-                    <button className='btn btn-secondary col-lg-2 ' type='submit'>Submit</button>
+                <div className='justify-content-center mb-3'>
+                    <button className='btn btn-secondary col-lg-2' type='submit'>Submit</button>
                 </div>
             </form>
         </div>
