@@ -6,9 +6,10 @@ require('./config/database');
 const app = express();
 app.use(logger('dev'));
 app.use(express.json());
-
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(require('./config/checkToken'));
+
+
 
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/blogs', require('./routes/api/blogs'));
@@ -20,5 +21,6 @@ app.get('/*', function (req, res) {
 });
 const port = process.env.PORT || 3001;
 app.listen(port, function () {
-    console.log(`Express running on http://localhost:${ port }`);
+    console.log(`Express running on http://localhost:${port}`);
 });
+

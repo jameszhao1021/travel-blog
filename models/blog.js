@@ -1,15 +1,49 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+const countryContinentMapping = require('./countryContinentMapping');
 
 const blogSchema = new Schema({
-    title: {type: String, required: true},
-    text: {type: String, required: true},
-    user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
-    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
+    continent:{
+        type: String, 
+      
+    },
+    country:{
+        type: String, 
+        required: true,
+    },
+    preview: {
+        type: String,
+    },
+    title: {type: String, 
+        required: true},
+    text: {
+        type: String, 
+        required: true,
+    },
+    user: {type: Schema.Types.ObjectId, 
+        ref: 'User', 
+        required: true,
+    },
+    comments: [{ type: Schema.Types.ObjectId, 
+        ref: 'Comment' }],
     }, {
         timestamps: true,
         
     });
 
+    blogSchema.pre('save', async function(next) {
+        try {
+            // Lookup the continent for the selected country from the mapping
+            const continent = countryContinentMapping[this.country];
+            if (!continent) {
+                throw new Error('Continent not found for the selected country');
+            }
+            // Set the continent field in the document
+            this.continent = continent;
+            next();
+        } catch (error) {
+            next(error);
+        }
+    });
+    
     module.exports = mongoose.model('Blog', blogSchema);

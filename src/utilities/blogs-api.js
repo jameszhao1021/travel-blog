@@ -2,13 +2,13 @@
 import sendRequest from './send-request';
 const BASE_URL = '/api/blogs';
 
-export function getNotes() {
-    console.log('check get data')
-    return sendRequest(`${BASE_URL}/get-blog`);
+export function getBlogs() {
+    
+    return sendRequest(BASE_URL);
   }
 
-export function addNote(noteForm) {
-  
-    return sendRequest(`${BASE_URL}/send-blog`, 'POST', noteForm);
+export function createBlog(blogForm) {
+  console.log('check adding feature')
+    return sendRequest(BASE_URL, 'POST', blogForm);
 }
   
