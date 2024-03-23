@@ -9,6 +9,7 @@ import Gallery from '../GalleryPage/GalleryPage'
 import { Routes, Route } from 'react-router-dom';
 import NavBar from '../../compoments/NavBar';
 import { getUser } from '../../utilities/users-service';
+import BlogForm from '../../compoments/BlogForm';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
               <Route path='/community' element={<Community />} />
               <Route path='/gallery' element={<Gallery />} />
               <Route path='/myblog' element={<MyBlogPage uploadImage={uploadImage}/>} />
+              <Route path='/myblog/new' element={<BlogForm uploadImage={uploadImage} />} />
             </Routes>
           </>
         ) :

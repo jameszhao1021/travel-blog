@@ -1,10 +1,9 @@
 import React from "react";
-import CountrySelectForm from '../../compoments/CountrySelectForm'
-import BlogForm from "../../compoments/BlogForm";
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import BlogCard from "../../compoments/BlogCard";
 import './myBlogPage.css';
-import * as blogsAPI from '../../utilities/blogs-api'
+
 function MyBlogPage({ uploadImage}){
 
     const [blogs, setBlogs] = useState([]);
@@ -15,14 +14,14 @@ function MyBlogPage({ uploadImage}){
     //     });
     // }, []);
 
-    return(
+    return (
         <div>
             <h1>MyBlogPage</h1>
-            
+
             <div className="row mt-3 mb-3">
                 <div className="col-sm profile">
                     <div>username</div>
-                    <div><img src="../../../public/images/profile.png" className="profileImage"/></div>
+                    <div><img src="../../../public/images/profile.png" className="profileImage" alt="Profile" /></div>
                     <div>Bio</div>
                 </div>
 
@@ -32,7 +31,7 @@ function MyBlogPage({ uploadImage}){
                 </div>
 
                 <div className="col-sm">
-                    <div><img src="../../../public/images/map.png" className="mapImage"/></div>
+                    <div><img src="../../../public/images/map.png" className="mapImage" alt="Map" /></div>
                 </div>
             </div>
 
@@ -40,9 +39,10 @@ function MyBlogPage({ uploadImage}){
                 <div className="col-sm">
                     <button>Edit profile</button>
                 </div>
-                <div className="col-sm">
+
+                <Link to="/myblog/new" className="col-sm">
                     <button>New Post</button>
-                </div>
+                </Link>
             </div>
 
             <div className="row mb-3 col-3">
@@ -50,14 +50,14 @@ function MyBlogPage({ uploadImage}){
                     <option value="All Posts">All Posts</option>
                     <option value="Public Posts">Public Posts</option>
                     <option value="Private Posts">Private Posts</option>
-                </select> 
+                </select>
             </div>
 
             <div className="row">
                 <BlogCard />
             </div>
+
             
-            <BlogForm uploadImage={uploadImage} blogs={blogs} setBlogs={setBlogs}/>
         </div>
     );
 };
