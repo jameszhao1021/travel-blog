@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
 
-function CountrySelectForm({handleChange}) {
+function CountrySelectForm({handleChange, newBlog, setNewBlog, selectedCountry, setSelectedCountry}) {
   const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState(null);
+
 
   useEffect(() => {
     // Fetch list of countries from the API
@@ -28,6 +28,7 @@ function CountrySelectForm({handleChange}) {
 
   function handleCountryChange (selectedOption) {
     setSelectedCountry(selectedOption);
+
     handleChange({ target: { name: 'country', value: selectedOption.value } })
   };
 
