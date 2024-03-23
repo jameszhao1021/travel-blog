@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 
-function BlogCard() {
+function BlogCard({ blog }) {
     return (
-        <Link to="">
-            <div style={{ backgroundImage: `url(../../public/images/articlePlaceholder.png)`}}>
-                <h2>Title: {}</h2>
-                <div>Location: {}</div>
+        <Link to={`/blog/${blog.title}`}>
+            <div style={{ backgroundImage: `url(${blog.preview})`}}>
+                <h2>Title: {blog.title}</h2>
+                <div>Country: {blog.country}</div>
             </div>
         </Link>
     );

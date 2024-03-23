@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import BlogCard from "../../compoments/BlogCard";
 import './myBlogPage.css';
 
-function MyBlogPage({ user }){
+function MyBlogPage({ user, blogs, setBlogs }){
 
     
 
@@ -54,7 +54,12 @@ function MyBlogPage({ user }){
             </div>
 
             <div className="row">
-                <BlogCard />
+            {console.log("Blogs:", blogs)}
+                {blogs.map((blog, index) => (
+                    <div key={index}>
+                        <BlogCard blog={blog} index={index} />
+                    </div>
+                ))}
             </div>
 
             
