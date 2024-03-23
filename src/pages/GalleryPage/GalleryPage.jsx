@@ -1,12 +1,13 @@
 import React from "react";
+import BlogCard from "../../compoments/BlogCard";
 
 function GalleryPage(){
 
 
     return(
         <>
-        <h1>GalleryPage</h1>
-        
+        <h1>Gallery</h1>
+        <BlogCard />
         </>
     )
 }

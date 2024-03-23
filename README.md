@@ -1,3 +1,5 @@
-# MERN-Stack Infrastructure
+# Travel Blog by James, Mahshid, Jordan & Hayley
 
-Clone this repo to provide the starter code for a comprehensive MERN-Stack project including token-based authentication.
+## About
+This is a social media app that is focused on Travel....etc
+

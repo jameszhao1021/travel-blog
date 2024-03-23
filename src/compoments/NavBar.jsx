@@ -59,7 +59,7 @@ function toggleModal(){
         </Navbar.Collapse>
       </Navbar>
       <SigninModal toggleModal={toggleModal} showModal={showModal} user={user} setUser={setUser}/>
-    </>
+    </div>
     );
 }
 export default NavBar
