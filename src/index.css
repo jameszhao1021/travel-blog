@@ -13,16 +13,19 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
+html, body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
-  padding: 2vmin;
+  /* background-color: var(--tan-4); */
+  background-image: url('/homepage-pic5.jpg'); 
+  background-size: cover;
+  padding: 0;
+  margin: 0;
   height: 100vh;
+  overflow: hidden;
 }
 
 code {
