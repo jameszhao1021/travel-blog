@@ -22,7 +22,7 @@ function toggleModal(){
 
     return (
       <>
-      <Navbar className='px-3'bg="dark" variant="dark" expand="lg">
+      <Navbar className='px-3 navbar-narrower navbar-custom'bg="dark" variant="dark" expand="lg">
         <Navbar.Brand href="/">LOGO</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

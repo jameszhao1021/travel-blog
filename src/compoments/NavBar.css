@@ -18,3 +18,11 @@
     color: #ccc; /* Light gray color for visibility */
 }
 
+.navbar-narrower {
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+}
+
+.navbar-custom {
+    font-size: 0.8rem; /* Adjust the size as needed */
+}
