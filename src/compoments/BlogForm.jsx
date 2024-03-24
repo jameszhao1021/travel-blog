@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CountrySelectForm from '../compoments/CountrySelectForm'
+import CountrySelectForm from '../components/CountrySelectForm'
 import * as blogsAPI from '../utilities/blogs-api'
 
 function BlogForm({uploadImage, blogs, setBlogs}){
