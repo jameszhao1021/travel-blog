@@ -38,8 +38,8 @@ function BlogDetailPage() {
   useEffect(() => {
     if (blogId) {
       getBlogDetails(blogId)
-        .then(blog => {
-          setBlog(blog);
+        .then(blogDetail => {
+          setBlog(blogDetail);
         })
         .catch(error => {
           console.error('Error fetching blog details:', error);
@@ -49,7 +49,7 @@ function BlogDetailPage() {
 
   // Conditional rendering: Show loading text until the blog details are fetched
   if (!blog) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
   return (
     // TODO: more details including comment form on the page

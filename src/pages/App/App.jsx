@@ -45,10 +45,10 @@ function App() {
               <Route path='/' element={<HomePage />} />
               <Route path='/community' element={<Community />} />
               <Route path='/gallery' element={<Gallery />} />
-              <Route path='/myblog' element={<MyBlogPage user={user} blogs={blogs} setBlogs={setBlogs} />} />
+              <Route path='/myblog' element={<MyBlogPage uploadImage={uploadImage} user={user} blogs={blogs} setBlogs={setBlogs} />} />
               <Route path='/myblog/new' element={<BlogForm uploadImage={uploadImage} setBlogs={setBlogs} />} />
               <Route path='/blog/:blogId' element={<BlogDetailPage />} /> 
-              <Route path='/myblog' element={<MyBlogPage uploadImage={uploadImage} user={user}/>} />
+              
             </Routes>
           </>
         ) :

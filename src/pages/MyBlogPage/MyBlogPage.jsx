@@ -15,7 +15,7 @@ function MyBlogPage({ user, uploadImage }) {
         blogsAPI.getMyBlogs().then((blogs) => {
             setBlogs(blogs);
         });
-    }, [blogs]);
+    }, []);
     const blogCards = blogs.map((blog, index) => (
         <BlogCard key={index} blog={blog} />
     ))

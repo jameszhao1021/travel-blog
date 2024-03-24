@@ -92,7 +92,7 @@ function BlogForm({ handleChange, uploadImage, formRef, preview, setPreview, new
                 <div className=' d-flex align-items-center gap-3'>
                     <input type="file" name="preview" onChange={handleChange} />
                     {/* <input type="file" name="preview" onChange={(e) => e.target.files[0]} /> */}
-                    <label>Upload preview piacture</label>
+                    <label>Upload preview picture</label>
                 </div>
                 <input type="text" name='title' placeholder='Type your title here' value={newBlog.title} onChange={handleChange} required />
                 <textarea name="text" id="text" rows='23' placeholder='Write your blog here' value={newBlog.text} onChange={handleChange} required></textarea>
