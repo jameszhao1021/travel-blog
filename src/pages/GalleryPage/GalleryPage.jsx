@@ -5,8 +5,8 @@ function GalleryPage(){
 
     return(
         <>
-        <h1>GalleryPage</h1>
-        
+        <h1>Gallery</h1>
+        {/* this area shows the images posted by users */}
         </>
     )
 }

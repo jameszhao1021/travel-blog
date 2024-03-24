@@ -7,7 +7,7 @@ import HomePage from '../HomePage/HomePage';
 import Community from '../CommunityPage/CommunityPage';
 import Gallery from '../GalleryPage/GalleryPage'
 import { Routes, Route } from 'react-router-dom';
-import NavBar from '../../compoments/NavBar';
+import NavBar from '../../components/NavBar';
 import { getUser } from '../../utilities/users-service';
 
 
@@ -42,7 +42,7 @@ function App() {
               <Route path='/' element={<HomePage />} />
               <Route path='/community' element={<Community />} />
               <Route path='/gallery' element={<Gallery />} />
-              <Route path='/myblog' element={<MyBlogPage uploadImage={uploadImage}/>} />
+              <Route path='/myblog' element={<MyBlogPage uploadImage={uploadImage} user={user}/>} />
             </Routes>
           </>
         ) :
