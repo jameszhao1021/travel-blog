@@ -9,7 +9,7 @@ router.post('/', ensureLoggedIn, blogsController.create);
 // router.put('/:id', ensureLoggedIn, blogsController.update);
 
 // GET /api/blogs/:id
-router.get('/:id', ensureLoggedIn, blogsController.show);
+// router.get('/:id', ensureLoggedIn, blogsController.show);
 
 
 module.exports = router;

@@ -21,8 +21,7 @@ function toggleModal(){
     }
 
     return (
-
-      <div className='mb-3'>
+      <>
       <Navbar className='px-3 navbar-narrower navbar-custom'bg="dark" variant="dark" expand="lg">
         <Navbar.Brand href="/">LOGO</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -59,7 +58,7 @@ function toggleModal(){
         </Navbar.Collapse>
       </Navbar>
       <SigninModal toggleModal={toggleModal} showModal={showModal} user={user} setUser={setUser}/>
-    </div>
+    </>
     );
 }
 export default NavBar
