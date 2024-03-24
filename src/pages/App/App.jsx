@@ -10,6 +10,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from '../../compoments/NavBar';
 import { getUser } from '../../utilities/users-service';
 import BlogForm from '../../compoments/BlogForm';
+import BlogDetailPage from '../BlogDetailPage/BlogDetailPage';
 
 
 function App() {
