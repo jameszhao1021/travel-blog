@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 
-// MapComponent JSX React component
 const InteractiveMap = () => {
   // Reference for the map container element
   const mapContainer = useRef(null);
