@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
 
-function CountrySelectForm({handleChange, newBlog, setNewBlog, selectedCountry, setSelectedCountry}) {
+function CountrySelectForm({handleChange, selectedCountry, setSelectedCountry}) {
   const [countries, setCountries] = useState([]);
 
 
