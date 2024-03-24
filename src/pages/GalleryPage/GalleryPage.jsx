@@ -7,7 +7,7 @@ function GalleryPage(){
     return(
         <>
         <h1>Gallery</h1>
-        <BlogCard />
+        {/* this area shows the images posted by users */}
         </>
     )
 }

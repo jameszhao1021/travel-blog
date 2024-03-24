@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import SigninModal from '../compoments/SigninModal'
+import SigninModal from '../components/SigninModal'
 import * as userService from '../utilities/users-service';
 import './NavBar.css';
 

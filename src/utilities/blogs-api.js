@@ -1,7 +1,7 @@
 import sendRequest from './send-request';
 const BASE_URL = '/api/blogs';
 
-export function getBlogs() {
+export function getMyBlogs() {
     
     return sendRequest(BASE_URL);
   }
