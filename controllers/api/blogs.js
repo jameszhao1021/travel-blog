@@ -27,10 +27,31 @@ async function create(req, res) {
   }
 }
 
+<<<<<<< HEAD
+async function show(req, res) {
+  try {
+    const blog = await Blog.findOne({_id: req.params.id, user: req.user._id});
+    if (!blog) {
+      return res.status(404).json({error: 'Blog not found'});
+    }
+    res.json(blog);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
+module.exports = {
+  create,
+  index,
+  show
+}
+
+=======
 module.exports = {
   index,
   create,
 };
+>>>>>>> 57fb59a3a9da55279aaac8c7a8fb8c3fbc5e672f
 
 
 

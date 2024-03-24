@@ -33,7 +33,7 @@ import { getBlogDetails } from '../../utilities/blogs-api';
 
 function BlogDetailPage() {
   const [blog, setBlog] = useState(null);
-  const { blogId } = useParams(); // Use useParams to access the blogId from the URL
+  const { blogId } = useParams(); // useParams to access the blogId from the URL
 
   useEffect(() => {
     if (blogId) {
@@ -52,7 +52,7 @@ function BlogDetailPage() {
     return <div>Loading...</div>;
   }
   return (
-    // TODO: more details on the page
+    // TODO: more details including comment form on the page
     <div>
       <h1>{blog.title}</h1>
       <p>Country: {blog.country}</p>

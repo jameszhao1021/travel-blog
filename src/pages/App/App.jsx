@@ -10,6 +10,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 import { getUser } from '../../utilities/users-service';
 import BlogForm from '../../compoments/BlogForm';
+import BlogDetailPage from '../BlogDetailPage/BlogDetailPage';
 
 
 function App() {
@@ -44,7 +45,13 @@ function App() {
               <Route path='/' element={<HomePage />} />
               <Route path='/community' element={<Community />} />
               <Route path='/gallery' element={<Gallery />} />
+<<<<<<< HEAD
+              <Route path='/myblog' element={<MyBlogPage user={user} blogs={blogs} setBlogs={setBlogs} />} />
+              <Route path='/myblog/new' element={<BlogForm uploadImage={uploadImage} setBlogs={setBlogs} />} />
+              <Route path='/blog/:blogId' element={<BlogDetailPage />} /> 
+=======
               <Route path='/myblog' element={<MyBlogPage uploadImage={uploadImage} user={user}/>} />
+>>>>>>> 57fb59a3a9da55279aaac8c7a8fb8c3fbc5e672f
             </Routes>
           </>
         ) :
