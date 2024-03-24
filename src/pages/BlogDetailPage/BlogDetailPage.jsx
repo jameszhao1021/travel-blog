@@ -38,8 +38,8 @@ function BlogDetailPage() {
   useEffect(() => {
     if (blogId) {
       getBlogDetails(blogId)
-        .then(blog => {
-          setBlog(blog);
+        .then(blogDetail => {
+          setBlog(blogDetail);
         })
         .catch(error => {
           console.error('Error fetching blog details:', error);

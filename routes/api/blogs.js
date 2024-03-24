@@ -8,7 +8,7 @@ router.post('/', ensureLoggedIn, blogsController.create);
 // router.delete('/:id', ensureLoggedIn, blogsController.delete);
 // router.put('/:id', ensureLoggedIn, blogsController.update);
 
-// GET /api/blogs/:id
+// // GET /api/blogs/:id
 router.get('/:id', ensureLoggedIn, blogsController.show);
 
 
