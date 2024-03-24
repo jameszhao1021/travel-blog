@@ -10,4 +10,8 @@ export function createBlog(blogForm) {
   console.log('check adding feature');
     return sendRequest(BASE_URL, 'POST', blogForm);
 }
+
+export function getBlogDetails(blogId) {
+  return sendRequest(`${BASE_URL}/${blogId}`);
+}
   

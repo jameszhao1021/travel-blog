@@ -46,6 +46,7 @@ function App() {
               <Route path='/gallery' element={<Gallery />} />
               <Route path='/myblog' element={<MyBlogPage user={user} blogs={blogs} setBlogs={setBlogs} />} />
               <Route path='/myblog/new' element={<BlogForm uploadImage={uploadImage} setBlogs={setBlogs} />} />
+              <Route path='/blog/:blogId' element={<BlogDetailPage />} /> 
             </Routes>
           </>
         ) :
