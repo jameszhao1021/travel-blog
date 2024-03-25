@@ -1,39 +1,13 @@
-
-// function BlogDetailPage() {
-
-//     return (
-//         <>
-//             <div className="container">
-
-//                 <div>Profile pic & UserName</div>
-//                 <div>Date</div>
-//                 <div>title</div>
-//                 <div>Map</div>
-//                 <div>Image</div>
-//                 <div>Content</div>
-
-//                 <div>
-//                     <div>like count</div>
-//                     <div>Like button</div>
-//                 </div>
-
-//                 <div>
-//                     Comment
-//                 </div>
-//             </div>
-//         </>
-//     );
-// };
-
-// export default BlogDetailPage;
-
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; 
 import { getBlogDetails } from '../../utilities/blogs-api'; 
+import CommentCard from '../../components/CommentCard';
+import './BlogDetailPage.css';
 
 function BlogDetailPage() {
   const [blog, setBlog] = useState(null);
-  const { blogId } = useParams(); // useParams to access the blogId from the URL
+  const [comments, setComments] = useState('');
+  const { blogId } = useParams();
 
   useEffect(() => {
     if (blogId) {
@@ -45,22 +19,37 @@ function BlogDetailPage() {
           console.error('Error fetching blog details:', error);
         });
     }
-  }, [blogId]); // Dependency array to re-run the effect if blogId changes
+  }, [blogId]);
+
+
+
+async function addComment(comment) {
+  const newComment = await notesAPI.createComment(comment);
+  // console.log('new Comment:', newComment);
+  setComments([...comments, newComment]);
+  //  console.log(comments);
+}
 
   // Conditional rendering: Show loading text until the blog details are fetched
-  if (!blog) {
+  if (!blog) { // Changed condition to check for blog state variable
     return <div>Loading...</div>;
   }
   return (
-    // TODO: more details including comment form on the page
     <div>
       <h1>{blog.title}</h1>
       <p>Country: {blog.country}</p>
-      <p>{blog.preview}</p>
-      <div>{blog.text}</div>
-      
+      <div className="row">
+        <div className="col-md-6">
+          <img src={blog.preview} alt="blog picture" className="img-fluid mb-3" style={{ maxWidth: '100%' }} />
+          <CommentCard addComment = { addComment }/>
+        </div>
+        <div className="col-md-6">
+          <div className="blog-text">{blog.text}</div>
+        </div>
+      </div>
     </div>
   );
 }
+
 
 export default BlogDetailPage;

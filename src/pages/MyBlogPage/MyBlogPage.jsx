@@ -4,7 +4,8 @@ import BlogForm from "../../components/BlogForm";
 import BlogFormModal from "../../components/BlogFormModal";
 import { useState, useEffect } from "react";
 import BlogCard from "../../components/BlogCard";
-import * as blogsAPI from '../../utilities/blogs-api'
+import * as blogsAPI from '../../utilities/blogs-api';
+
 function MyBlogPage({ user, uploadImage }) {
     const [blogs, setBlogs] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -15,7 +16,8 @@ function MyBlogPage({ user, uploadImage }) {
         blogsAPI.getMyBlogs().then((blogs) => {
             setBlogs(blogs);
         });
-    }, [blogs]);
+    }, []);
+
     const blogCards = blogs.map((blog, index) => (
         <BlogCard key={index} blog={blog} />
     ))

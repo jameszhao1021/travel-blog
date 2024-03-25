@@ -34,6 +34,7 @@ async function show(req, res) {
       return res.status(404).json({error: 'Blog not found'});
     }
     res.json(blogDetail);
+    // console.log(blogDetail);
   } catch (err) {
     res.status(400).json(err);
   }
