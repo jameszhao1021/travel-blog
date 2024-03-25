@@ -24,6 +24,7 @@ function HomePage(){
                 <img src="/homepage-pic4.jpg" alt="travel picture 4" />
             </div> */}
         </div>
+            
     )
 }
 
