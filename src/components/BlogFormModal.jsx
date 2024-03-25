@@ -32,7 +32,7 @@ const BlogFormModal = ({ toggleModal, showModal, uploadImage, blogs, setBlogs })
         }
         let submittedBlog = { ...newBlog };  // Create a copy of newBlog to pass to addBlog and setBlogs
        await  addBlog(submittedBlog); // Pass the copy to addBlog
-      //  await setBlogs((prev) => [...prev, submittedBlog]); // Pass the copy to setBlogs
+       //await setBlogs((prev) => [...prev, submittedBlog]); // Pass the copy to setBlogs
         setNewBlog({
             country:'',
             preview:'',
