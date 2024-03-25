@@ -5,18 +5,20 @@ import './App.css'
 import MyBlogPage from '../MyBlogPage/MyBlogPage';
 import HomePage from '../HomePage/HomePage';
 import Community from '../CommunityPage/CommunityPage';
-import Gallery from '../GalleryPage/GalleryPage'
+import GalleryPage from '../GalleryPage/GalleryPage'
 import { Routes, Route } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
 import { getUser } from '../../utilities/users-service';
 import BlogForm from '../../components/BlogForm';
 import BlogDetailPage from '../BlogDetailPage/BlogDetailPage';
+import GalleryForm from '../../components/GalleryForm';
 
 
 function App() {
 
   const [user, setUser] = useState(getUser());
   const [blogs, setBlogs] = useState([]);
+  const [galleries, setGalleries] = useState([]);
 
   const uploadImage = async (image) => {
 		const data = new FormData()
@@ -44,7 +46,9 @@ function App() {
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/community' element={<Community />} />
-              <Route path='/gallery' element={<Gallery />} />
+              <Route path='/gallery' element={<GalleryPage uploadImage={uploadImage} user={user} galleries={galleries} setGalleries={setGalleries}/>} />
+              <Route path='/gallery/new' element={<GalleryForm uploadImage={uploadImage} setGalleries={setGalleries} />} />
+
               <Route path='/myblog' element={<MyBlogPage uploadImage={uploadImage} user={user} blogs={blogs} setBlogs={setBlogs} />} />
               <Route path='/myblog/new' element={<BlogForm uploadImage={uploadImage} setBlogs={setBlogs} />} />
               <Route path='/blog/:blogId' element={<BlogDetailPage />} /> 
@@ -56,7 +60,7 @@ function App() {
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/community' element={<Community />} />
-              <Route path='/gallery' element={<Gallery />} />
+              <Route path='/gallery' element={<GalleryPage />} />
             </Routes>
           )
       }
