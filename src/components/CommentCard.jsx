@@ -7,6 +7,7 @@ function CommentCard({ addComment }) {
     event.preventDefault();
     addComment(newComment);
     setNewNote('');
+ }
 
  return (
     <form onSubmit={handleSubmit}>
@@ -16,7 +17,7 @@ function CommentCard({ addComment }) {
                 className="form-control" 
                 id="comment" 
                 rows="3" 
-                value={comment}
+                // value={comment}
                 onChange={(event) => setNewComment(event.target.value)}
                 required
               ></textarea>
@@ -25,6 +26,6 @@ function CommentCard({ addComment }) {
           </form>
    )
   }
-}
+
 
  export default CommentCard;
