@@ -48,15 +48,15 @@ function BlogDetailPage() {
   }, [blogId]); // Dependency array to re-run the effect if blogId changes
 
   // Conditional rendering: Show loading text until the blog details are fetched
-  if (!blog) {
-    return <div>Loading...</div>
-  }
+  // if (!blog) {
+  //   return <div>Loading...</div>
+  // }
   return (
     // TODO: more details including comment form on the page
     <div>
       <h1>{blog.title}</h1>
       <p>Country: {blog.country}</p>
-      <p>{blog.preview}</p>
+      <p><img src={blog.preview} /></p>
       <div>{blog.text}</div>
       
     </div>
