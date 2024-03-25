@@ -3,7 +3,7 @@ const Gallery = require('../../models/gallery')
 
 async function index(req, res) {
   try {
-      const galleries = await Gallery.find({user: req.user._id});
+      const galleries = await Gallery.find();
       res.json(galleries);
   } catch (err) {
       res.status(400).json(err);

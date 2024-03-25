@@ -2,9 +2,13 @@ import { Link } from 'react-router-dom';
 
 function GalleryCard({ gallery, index }) {
     return (
-        <div className="card col-lg-12" style={{ backgroundImage: `url(${gallery.preview})`, backgroundSize: 'cover' }}>
-            <p className="bg-light opacity-75">{gallery.country}</p>
-            <p className="bg-light opacity-75">{gallery.text}</p>
+        <div className='col-sm-4 my-2'>
+            <div className="d-flex flex-column justify-content-end" style={{ backgroundImage: `url(${gallery.preview})`, backgroundSize: "cover", height: "30vmin"}}>
+                <div className="bg-light opacity-75">
+                    <p>Country: {gallery.country}</p>
+                    <p>{gallery.text}</p>
+                </div>
+            </div>
         </div>
     )
 }
