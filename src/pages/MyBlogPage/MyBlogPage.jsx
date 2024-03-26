@@ -4,6 +4,7 @@ import BlogForm from "../../components/BlogForm";
 import BlogFormModal from "../../components/BlogFormModal";
 import { useState, useEffect } from "react";
 import BlogCard from "../../components/BlogCard";
+import InteractiveMap from "../../components/InteractiveMap";
 import * as blogsAPI from '../../utilities/blogs-api';
 import InteractiveMap from "../../components/InteractiveMap";
 import '../../index.css';
@@ -49,7 +50,7 @@ function MyBlogPage({ user, uploadImage }) {
                         </div>
                     </div>
                     <div className="row ">
-                        <img src="../../../public/images/map.jpg" className="mapImage" alt="Map" />
+                        <InteractiveMap />
                     </div>
                 </div>
                 <div className="col-lg-8 d-flex flex-column" >

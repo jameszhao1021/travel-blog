@@ -14,6 +14,7 @@ app.use(require('./config/checkToken'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/blogs', require('./routes/api/blogs'));
 app.use('/api/galleries', require('./routes/api/galleries'));
+app.use('/', require('./routes/api/comments'));
 
 // We'll respond to any paths we don't recognise by sending
 // the React index.html.

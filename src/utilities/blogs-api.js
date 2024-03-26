@@ -14,4 +14,7 @@ export function createBlog(blogForm) {
 export function getBlogDetails(blogId) {
   return sendRequest(`${BASE_URL}/${blogId}`);
 }
-  
+
+export function createBlogComment(blogId, comment) {
+  return sendRequest(`${BASE_URL}/${blogId}/comments`, 'POST', comment);
+}
