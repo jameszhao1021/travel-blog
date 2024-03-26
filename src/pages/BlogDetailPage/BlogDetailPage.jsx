@@ -29,6 +29,13 @@ function BlogDetailPage() {
     const newComment = await blogsAPI.createBlogComment(blogId, comment);
     setComments([...comments, newComment]);
   }
+
+  async function deleteComment(id) {
+    await blogsAPI.deleteComment(id);
+    const updatedComments = comments.filter((c) => c._id !== id);
+    setComments(updatedComments);
+    console.log(updatedComments);
+}
   
   if (!blog) { 
     return <div>Loading...</div>;
@@ -55,7 +62,7 @@ function BlogDetailPage() {
       </div>
       <div className="row mt-4 justify-content-center">
         <div className="col-md-8">
-          <CommentsList comments={comments} />
+          <CommentsList comments={comments} deleteComment={deleteComment} />
         </div>
       </div>
     </div>

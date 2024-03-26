@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CommentCard({ comment }) {
+function CommentCard({ comment, deleteComment }) {
   const { createdAt, text, userName } = comment;
   console.log('comment is:', comment);
 
@@ -16,6 +16,10 @@ function CommentCard({ comment }) {
         <p className="card-text">User: {userName}</p>
         <p className="card-text">{formattedDate}</p>
         <p className="card-text">{text}</p>
+        <button onClick={() => deleteComment(comment._id)} title="Delete">&times;</button>
+        <button onClick={() => EditComment(comment._id)} title="Edit">✎</button>
+
+        
       </div>
     </div>
   );
