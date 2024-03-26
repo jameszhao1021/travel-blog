@@ -1,0 +1,50 @@
+.blogCard {
+    height: 500px;
+    border: 1px solid rgb(219, 219, 219);
+    font-weight: 200;
+    font-size: 1.3rem;
+    padding: 0.6rem;
+    color: grey;
+    
+}
+
+.blogCard:hover {
+    border: 1px solid #D3C1AE;
+}
+
+.blogCard a {
+    text-decoration: none;
+    color: grey;
+}
+
+.blogCard a:hover {
+    text-decoration: none;
+    color: #D3C1AE;
+}
+
+.blogCardBg {
+    background-color: #F6F2EF;
+    height: 100%;
+    padding: 0.8rem;
+}
+
+
+.blogCardImage {
+    height: 290px;
+    width: 320px;
+}
+
+.blogTitle {
+    padding: 1rem 0;
+    font-size: 1.2rem;
+
+}
+
+.blogBottomText {
+    border-top: 1px solid #fff;
+    padding-top: 1rem;
+    margin-top: auto;
+    letter-spacing: 0.1rem;
+    color: #b79979;
+}
+

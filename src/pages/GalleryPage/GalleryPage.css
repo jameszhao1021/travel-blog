@@ -1,0 +1,9 @@
+.post-btn {
+    border-color: #f2d5b6 !important;
+    color: grey !important;
+}
+
+.post-btn:hover {
+    background-color: #f2d5b6 !important;
+    color: #fff !important;
+}

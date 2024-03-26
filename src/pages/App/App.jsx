@@ -4,7 +4,6 @@ import './App.css'
 
 import MyBlogPage from '../MyBlogPage/MyBlogPage';
 import HomePage from '../HomePage/HomePage';
-import Community from '../CommunityPage/CommunityPage';
 import GalleryPage from '../GalleryPage/GalleryPage'
 import { Routes, Route } from 'react-router-dom';
 import NavBar from '../../components/NavBar';
@@ -12,6 +11,8 @@ import { getUser } from '../../utilities/users-service';
 import BlogForm from '../../components/BlogForm';
 import BlogDetailPage from '../BlogDetailPage/BlogDetailPage';
 import GalleryForm from '../../components/GalleryForm';
+import Footer from '../../components/Footer';
+import CommunityPage from '../CommunityPage/CommunityPage';
 
 
 function App() {
@@ -33,8 +34,10 @@ function App() {
 	};
 
   return (
+    <>
+    
 
-    <div className='container container-fluid'>
+    <div className='container'>
       <>
         <NavBar user={user} setUser={setUser} />
 
@@ -45,7 +48,7 @@ function App() {
 
             <Routes>
               <Route path='/' element={<HomePage />} />
-              <Route path='/community' element={<Community />} />
+              <Route path='/community' element={<CommunityPage />} />
               <Route path='/gallery' element={<GalleryPage uploadImage={uploadImage} user={user} galleries={galleries} setGalleries={setGalleries}/>} />
               <Route path='/gallery/new' element={<GalleryForm uploadImage={uploadImage} setGalleries={setGalleries} />} />
 
@@ -59,12 +62,16 @@ function App() {
           (
             <Routes>
               <Route path='/' element={<HomePage />} />
-              <Route path='/community' element={<Community />} />
+              <Route path='/community' element={<CommunityPage />} />
               <Route path='/gallery' element={<GalleryPage />} />
             </Routes>
           )
       }
+      <Footer />
     </div>
+    
+    
+    </>
   )
 }
 

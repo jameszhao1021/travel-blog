@@ -4,6 +4,7 @@
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
   --tan-4: #D3C1AE;
+  --nav: #F6F2EF;
   --orange: #F67F00;
   --text-light: #968c84;
   --text-dark: #615954;
@@ -19,13 +20,20 @@ html, body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: var(--tan-4); */
-  background-image: url('/homepage-pic5.jpg'); 
+  background-color: var(--tan-4);
+  /* background-image: url('/homepage-pic5.jpg');  */
   background-size: cover;
-  padding: 0;
+  padding: 30px 0 0 0;
   margin: 0;
   height: 100vh;
   overflow: auto;
+}
+
+.footerDiv {
+  position: relative; /* Change position to relative */
+  border-top: #F5F2EF 1px solid;
+  padding: 20px;
+  text-align: center;
 }
 
 code {
@@ -156,4 +164,20 @@ button:disabled, form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+}
+
+.pageTitle {
+  font-size: 4rem;
+  font-weight: 100;
+  color: var(--text-dark);
+  letter-spacing: 0.4rem;
+}
+
+.pageDescription {
+  border-top: 1px solid #D3C1AE;
+  margin-top: 1rem;
+  padding: 1.2rem 0;
+  font-weight: 200;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
 }

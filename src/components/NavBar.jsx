@@ -22,40 +22,37 @@ function toggleModal(){
 
     return (
       <>
-      <Navbar className='px-3 navbar-narrower navbar-custom'bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand href="/">LOGO</Navbar.Brand>
+      <Navbar className='navbar navbar-custom fixed-top justify-content-center' variant="light" expand="lg" style={{ backgroundColor: '#F6F2EF' }}>
+        <div className=''>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/community">Community</Nav.Link>
-            <Nav.Link href="/gallery">Gallery</Nav.Link>
+          <Nav className="me-auto">
+            <Nav.Link href="/" className="me-4">Home</Nav.Link>
+            <Nav.Link href="/community" className="me-4">Community</Nav.Link>
+            <Nav.Link href="/gallery" className="me-4">Gallery</Nav.Link>
             {
               user ? (
                 <>
-                  <Nav.Link href="/myblog">My Blog</Nav.Link>
-                  <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                  <Nav.Link href="/myblog" className="me-4">My Blog</Nav.Link>
+                  <Nav.Link onClick={handleLogout} className="me-4">Logout</Nav.Link>
                 </>
               ) : (
                 <Nav.Link onClick={toggleModal}>Sign in</Nav.Link>
               )
             }
           </Nav>
-         {/* TODO : nav-search-log class */}
-         <div className="nav-search-log">
-           <nav className="navbar bg-dark"> {/* Use bg-dark for a dark background */}
-             <div className="container-fluid">
-               <form className="d-flex" role="search">
-                 <input className="form-control form-control-sm me-2 bg-dark text-white" type="search" placeholder="Search" aria-label="Search"/>
-                 <button className="btn btn-sm btn-outline-success" type="submit">Search</button>
-               </form>
-             </div>
-          </nav>
-        </div>
-        <div className="ms-auto"> 
-            {user && <span style={{color:'white'}}>Welcome, { user.name }</span>}
-          </div>
+          <Nav className="nav-search-log">
+            <form className="d-flex" role="search">
+              <input className="form-control form-control-sm me-2" type="search" placeholder="Search the site.." aria-label="Search"/>
+              <button className="btn btn-sm btn-outline-success button-custom" type="submit">Search</button>
+            </form>
+          </Nav>
+          <Nav className="ms-4">
+            {user && <span>Welcome, { user.name }</span>}
+          </Nav>
         </Navbar.Collapse>
+        </div>
+        
       </Navbar>
       <SigninModal toggleModal={toggleModal} showModal={showModal} user={user} setUser={setUser}/>
     </>
