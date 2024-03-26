@@ -1,4 +1,5 @@
-const Blog = require('../../models/blog')
+const Blog = require('../../models/blog');
+
 
 
 async function index(req, res) {
@@ -29,16 +30,31 @@ async function create(req, res) {
 
 async function show(req, res) {
   try {
-    const blogDetail = await Blog.findOne({_id: req.params.id, user: req.user._id});
+     const blogDetail = await Blog.findOne({ _id: req.params.id, user: req.user._id })
+      // const blogDetail = await Blog.findOne({ _id: req.params.id, user: req.user._id })
+      //   .populate({
+      //     path: 'comments',
+      //     populate: { 
+      //       path: 'user', 
+            
+      //     }
+      //   });
+        // console.log(blogDetail);
+  
     if (!blogDetail) {
       return res.status(404).json({error: 'Blog not found'});
     }
     res.json(blogDetail);
     // console.log(blogDetail);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 }
+
+
+
+
 
 module.exports = {
   create,

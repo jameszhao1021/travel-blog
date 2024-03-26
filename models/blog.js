@@ -2,6 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const countryContinentMapping = require('./countryContinentMapping');
 
+
+const commentSchema = new Schema({
+    text: {type: String, required: true},
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
+      userName: String
+    }, {
+        timestamps: true,
+        
+    });
+
 const blogSchema = new Schema({
     continent:{
         type: String, 
@@ -24,8 +38,7 @@ const blogSchema = new Schema({
         ref: 'User', 
         required: true,
     },
-    comments: [{ type: Schema.Types.ObjectId, 
-        ref: 'Comment' }],
+    comments: [commentSchema],
     }, {
         timestamps: true,
         
