@@ -1,31 +1,24 @@
-import React, { useState } from 'react';
-function CommentCard({ addComment }) {
- const [newComment, setNewComment] = useState('');
+import React from 'react';
+
+function CommentCard({ comment }) {
+  const { createdAt, text, userName } = comment;
+  console.log('comment is:', comment);
 
 
- const handleSubmit = (event) => {
-    event.preventDefault();
-    addComment(newComment);
-    setNewNote('');
- }
+  const formattedDate = new Date(createdAt).toLocaleString();
 
- return (
-    <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="comment">Comments:</label>
-              <textarea 
-                className="form-control" 
-                id="comment" 
-                rows="3" 
-                // value={comment}
-                onChange={(event) => setNewComment(event.target.value)}
-                required
-              ></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-          </form>
-   )
-  }
+  // If comment.user is an object containing user information, display the username
+  // const username = user.name;
 
+  return (
+    <div className="card mb-3">
+      <div className="card-body">
+        <p className="card-text">User: {userName}</p>
+        <p className="card-text">{formattedDate}</p>
+        <p className="card-text">{text}</p>
+      </div>
+    </div>
+  );
+}
 
- export default CommentCard;
+export default CommentCard;
