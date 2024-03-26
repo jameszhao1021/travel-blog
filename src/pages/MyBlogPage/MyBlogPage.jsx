@@ -7,7 +7,6 @@ import BlogCard from "../../components/BlogCard";
 import * as blogsAPI from '../../utilities/blogs-api';
 import InteractiveMap from "../../components/InteractiveMap";
 import '../../index.css';
-import './myBlogPage.css'
 
 
 function MyBlogPage({ user, uploadImage }) {
