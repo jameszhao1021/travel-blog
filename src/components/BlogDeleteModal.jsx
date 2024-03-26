@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
-import * as blogsAPI from '../utilities/blogs-api'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import BlogForm from './BlogForm'
 
 const BlogDeleteModal = ({ toggleDeleteModal, showDeleteModal, handleDelete, blog}) => {
    
