@@ -4,7 +4,6 @@ import BlogForm from "../../components/BlogForm";
 import BlogFormModal from "../../components/BlogFormModal";
 import { useState, useEffect } from "react";
 import BlogCard from "../../components/BlogCard";
-import InteractiveMap from "../../components/InteractiveMap";
 import * as blogsAPI from '../../utilities/blogs-api';
 import InteractiveMap from "../../components/InteractiveMap";
 import '../../index.css';

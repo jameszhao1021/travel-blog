@@ -175,3 +175,12 @@ button[type="submit"] {
   color: var(--text-dark);
   letter-spacing: 0.4rem;
 }
+
+.pageDescription {
+  border-top: 1px solid #D3C1AE;
+  margin-top: 1rem;
+  padding: 1.2rem 0;
+  font-weight: 200;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+}
