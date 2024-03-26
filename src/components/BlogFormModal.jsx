@@ -1,68 +1,88 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import * as blogsAPI from '../utilities/blogs-api'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import BlogForm from './BlogForm'
+import BlogForm from './BlogForm';
 
-const BlogFormModal = ({ toggleModal, showModal, uploadImage, blogs, setBlogs }) => {
-    const [preview, setPreview] = useState('');
-    const formRef = useRef(null); 
-    const [newBlog, setNewBlog] = useState({
-        country:'',
-        preview:'',
-        title:'',
-        text:''
-    })
-    const [selectedCountry, setSelectedCountry] = useState(null);
+const BlogFormModal = ({ blog, toggleFormModal, showFormModal, uploadImage, blogs, setBlogs, editBlog, setEditBlog, newBlog, setNewBlog }) => {
+  const [preview, setPreview] = useState('');
+  const formRef = useRef(null);
 
-    async function addBlog(blog) {
-        const newBlog = await blogsAPI.createBlog(blog);
-        setBlogs([...blogs, newBlog]);
+  // const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    console.log(editBlog)
+    if (editBlog) {
+      setNewBlog({ ...editBlog });
+
+      // setLoading(false);
+    } else {
+      setNewBlog({
+        country: '',
+        preview: '',
+        title: '',
+        text: ''
+      })
     }
+  }, [editBlog]);
 
-    async function handleSubmit(e) {
-        e.preventDefault();
-       
-        if (preview) {
-            const data = await uploadImage(preview);
-            console.log('data about picture uploaded: '+ data)
-            newBlog.preview = data.url;
-        } else {
-            setPreview('');
-        }
-        let submittedBlog = { ...newBlog };  // Create a copy of newBlog to pass to addBlog and setBlogs
-       await  addBlog(submittedBlog); // Pass the copy to addBlog
-       //await setBlogs((prev) => [...prev, submittedBlog]); // Pass the copy to setBlogs
-        setNewBlog({
-            country:'',
-            preview:'',
-            title:'',
-            text:''
-        });
-        setSelectedCountry('')
-        formRef.current.reset();
-        toggleModal();
+  const [selectedCountry, setSelectedCountry] = useState(null);
+
+  async function addBlog(blog) {
+    const newBlog = await blogsAPI.createBlog(blog);
+    setBlogs([...blogs, newBlog]);
+  }
+
+  function resetAfterClose() {
+    setEditBlog(null)
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (preview) {
+      const data = await uploadImage(preview);
+      console.log('data about picture uploaded: ' + data)
+      newBlog.preview = data.url;
+    } else {
+      setPreview('');
     }
+    let submittedBlog = { ...newBlog };
+    if (!editBlog) {
+       // Create a copy of newBlog to pass to addBlog and setBlogs
+      await addBlog(submittedBlog); // Pass the copy to addBlog
+      setNewBlog({
+        country: '',
+        preview: '',
+        title: '',
+        text: ''
+      });
+      setSelectedCountry('')
+      formRef.current.reset();
+    } else {
+   
+      const editedBlog = await blogsAPI.updateBlog(editBlog._id, submittedBlog)
+      setEditBlog(editedBlog)
+      setBlogs(blogs.map(blog => (blog._id === editedBlog._id ? editedBlog : blog)));
+    }
+    toggleFormModal();
+    resetAfterClose();
+  }
 
-
-    return (
-        <div>
-          <Modal centered show={showModal} style={{ maxHeight: '100vh', overflowY: 'auto' }}>
-            <Modal.Body style={{ maxHeight: '800px', overflowY: 'hidden' }}>
-              {/* Adjust maxHeight as needed to control the height */}
-              <BlogForm uploadImage={uploadImage} blogs={blogs} setBlogs={setBlogs} newBlog={newBlog} setNewBlog={setNewBlog} preview={preview} setPreview={setPreview} selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry}  formRef={formRef}/>
-            </Modal.Body>
-            <Modal.Footer >
-            <Button variant="secondary" onClick={handleSubmit}>
-                Submit
-              </Button>
-              <Button variant="secondary" onClick={toggleModal}>
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </div>
-      );
+  return (
+      <Modal centered show={showFormModal} style={{ maxHeight: '100vh', overflowY: 'auto' }}>
+        <Modal.Body style={{ maxHeight: '800px', overflowY: 'hidden' }}>
+        <BlogForm editBlog={editBlog} formRef={formRef} setPreview={setPreview} newBlog={newBlog} setNewBlog={setNewBlog} selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} />
+        </Modal.Body>
+        <Modal.Footer >
+          <Button variant="secondary" onClick={handleSubmit}>
+            Submit
+          </Button>
+          <Button variant="secondary" onClick={() => { toggleFormModal(); resetAfterClose() }}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+  );
 
 }
 export default BlogFormModal

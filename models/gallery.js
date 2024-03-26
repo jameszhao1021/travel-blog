@@ -26,7 +26,8 @@ const gallerySchema = new Schema({
 gallerySchema.pre('save', async function(next) {
     try {
         // Lookup the continent for the selected country from the mapping
-        const continent = countryContinentMapping[this.country];
+        const mapping = await countryContinentMapping;
+        const continent = mapping[this.country];
         if (!continent) {
             throw new Error('Continent not found for the selected country');
         }

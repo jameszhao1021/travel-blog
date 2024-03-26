@@ -5,7 +5,7 @@
     font-size: 1.3rem;
     padding: 0.6rem;
     color: grey;
-    
+    position: relative; 
 }
 
 .blogCard:hover {
@@ -48,3 +48,34 @@
     color: #b79979;
 }
 
+.backGoundImage {
+    height: 60%;
+}
+
+.blogCard .buttons {
+    position: absolute;
+    top: 20px;
+    /* Adjust as needed */
+    right: 25px;
+    /* Adjust as needed */
+    opacity: 0;
+    /* Initially hide the buttons */
+    transition: opacity 0.3s ease;
+    /* Add transition for opacity */
+    display: flex;
+    justify-content: space-around;
+    width: 45%;
+}
+
+.blogCard:hover .buttons {
+    opacity: 1;
+    /* Show the buttons when card is hovered over */
+}
+
+.button {
+    background-color: #fff;
+    color: #000;
+    width: 50%;
+    font-size: 20px;
+    opacity: 0.7;
+}
