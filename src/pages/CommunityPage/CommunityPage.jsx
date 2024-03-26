@@ -1,4 +1,6 @@
 import React from "react";
+import '../../index.css';
+
 
 
 function BlogPage(){
@@ -6,7 +8,7 @@ function BlogPage(){
 
     return(
         <>
-        <h1>Community</h1>
+        <div className="pageTitle">Explore Community</div>
        
         </>
     )

@@ -5,6 +5,8 @@ import GalleryFormModal from "../../components/GalleryFormModal";
 import { useState, useEffect } from "react";
 import GalleryCard from "../../components/GalleryCard";
 import * as galleriesAPI from '../../utilities/galleries-api';
+import '../../index.css';
+
 
 function GalleryPage({ user, uploadImage }) {
     const [galleries, setGalleries] = useState([]);
@@ -23,7 +25,7 @@ function GalleryPage({ user, uploadImage }) {
     ))
     return (
         <>
-            <h1>Photo Gallery</h1>
+        <div className="pageTitle">Photo Gallery</div>
             <div>Post photos of your favourite places around the world here</div>
             
             <div>

@@ -2,10 +2,8 @@
     width: 180px; /* Reduce width */
     height: 30px;
     padding: 10px; /* Adjust padding */
-    font-size: 12px; /* Smaller font size */
-    margin: 0 0 0 50px;
-   
-
+    font-size: 0.9rem; /* Smaller font size */
+    margin-left: 5rem;
 }
 .btn.btn-outline-success {
     padding: 5px 15px; /* Adjust padding */
@@ -18,11 +16,20 @@
     color: #ccc; /* Light gray color for visibility */
 }
 
-.navbar-narrower {
-    padding-top: 1px !important;
-    padding-bottom: 1px !important;
-}
 
 .navbar-custom {
-    font-size: 0.8rem; /* Adjust the size as needed */
+    font-size: 1.1rem; /* Adjust the size as needed */
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+    letter-spacing: 0.1rem;
+}
+
+.button-custom {
+    border-color: #f2d5b6 !important;
+    color: grey !important;
+  }
+  
+.button-custom:hover {
+    background-color: #f2d5b6 !important;
+    color: #fff !important;
 }

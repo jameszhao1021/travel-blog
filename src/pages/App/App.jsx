@@ -12,6 +12,7 @@ import { getUser } from '../../utilities/users-service';
 import BlogForm from '../../components/BlogForm';
 import BlogDetailPage from '../BlogDetailPage/BlogDetailPage';
 import GalleryForm from '../../components/GalleryForm';
+import Footer from '../../components/Footer';
 
 
 function App() {
@@ -33,8 +34,10 @@ function App() {
 	};
 
   return (
+    <>
+    
 
-    <div className='container container-fluid'>
+    <div className='container'>
       <>
         <NavBar user={user} setUser={setUser} />
 
@@ -64,7 +67,11 @@ function App() {
             </Routes>
           )
       }
+      <Footer />
     </div>
+    
+    
+    </>
   )
 }
 

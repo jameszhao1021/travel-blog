@@ -5,6 +5,9 @@ import BlogFormModal from "../../components/BlogFormModal";
 import { useState, useEffect } from "react";
 import BlogCard from "../../components/BlogCard";
 import * as blogsAPI from '../../utilities/blogs-api';
+import InteractiveMap from "../../components/InteractiveMap";
+import '../../index.css';
+
 
 function MyBlogPage({ user, uploadImage }) {
     const [blogs, setBlogs] = useState([]);
@@ -23,7 +26,7 @@ function MyBlogPage({ user, uploadImage }) {
     ))
     return (
         <div >
-            <h1>MyBlogPage</h1>
+        <div className="pageTitle">My Blog</div>
             <div className="container-fluid row justify-content-between" >
                 <div className="col-lg-3 profile">
                     <div>{user.name}</div>
