@@ -14,7 +14,7 @@
 .homeMainImage {
     background-image: url('../../../public/images/homePageImage.jpeg');
     background-size: cover;
-    margin-top: 140px;
+    margin-top: 50px;
     height: 800px;
     position: absolute;
     left: 0;

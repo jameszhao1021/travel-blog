@@ -30,13 +30,10 @@ html, body {
 }
 
 .footerDiv {
-  position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-top: #F5F2EF 1px solid;
-    padding: 20px;
-    text-align: center;
+  position: relative; /* Change position to relative */
+  border-top: #F5F2EF 1px solid;
+  padding: 20px;
+  text-align: center;
 }
 
 code {

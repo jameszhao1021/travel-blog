@@ -13,7 +13,7 @@ function HomePage(){
 
 
     return(
-        <>
+        <div style={{height: '100vh'}}>
             <div className="home-page">
                 <div className="pageTitle">Travel WikkiMedia</div>
                 
@@ -36,9 +36,8 @@ function HomePage(){
                     </div>
 
                 </div>
-                
             </div>
-        </>
+        </div>
     )
 }
 

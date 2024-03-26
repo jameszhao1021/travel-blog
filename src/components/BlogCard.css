@@ -2,7 +2,7 @@
     height: 500px;
     border: 1px solid rgb(219, 219, 219);
     font-weight: 200;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding: 0.6rem;
     color: grey;
     
@@ -45,5 +45,6 @@
     padding-top: 1rem;
     margin-top: auto;
     letter-spacing: 0.1rem;
+    color: #b79979;
 }
 
