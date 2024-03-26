@@ -6,13 +6,22 @@ async function countryContinentMapping() {
         const countries = response.data;
         const countryContinentMapping = {};
 
-        countries.forEach(country => {
+        await countries.forEach(country => {
             const name = country.name.common;
-            const continent = country.region || country.subregion || "Unknown";
+            let continent 
+            if (country.region == 'Americas'){
+                if(country.subregion == 'South America'){
+                    continent = country.subregion;
+                } else {
+                continent = 'North America';
+                }
+            }else{
+                continent= country.region
+            }
             countryContinentMapping[name] = continent;
         });
 
-
+ console.log(countryContinentMapping)
         return countryContinentMapping;
     } catch (error) {
         console.error('Error fetching countries:', error);

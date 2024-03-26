@@ -46,7 +46,6 @@ const blogSchema = new Schema({
     blogSchema.pre('save', async function(next) {
         try {
             const mapping = await countryContinentMapping;
-
             // Check if the mapping is retrieved successfully
             console.log('See the whole map:', mapping);
             console.log('Current country:', this.country);

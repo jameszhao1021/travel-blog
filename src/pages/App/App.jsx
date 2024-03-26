@@ -51,7 +51,6 @@ function App() {
               <Route path='/community' element={<CommunityPage />} />
               <Route path='/gallery' element={<GalleryPage uploadImage={uploadImage} user={user} galleries={galleries} setGalleries={setGalleries}/>} />
               <Route path='/gallery/new' element={<GalleryForm uploadImage={uploadImage} setGalleries={setGalleries} />} />
-
               <Route path='/myblog' element={<MyBlogPage uploadImage={uploadImage} user={user} blogs={blogs} setBlogs={setBlogs} />} />
               <Route path='/myblog/new' element={<BlogForm uploadImage={uploadImage} setBlogs={setBlogs} />} />
               <Route path='/blog/:blogId' element={<BlogDetailPage />} /> 
@@ -64,6 +63,7 @@ function App() {
               <Route path='/' element={<HomePage />} />
               <Route path='/community' element={<CommunityPage />} />
               <Route path='/gallery' element={<GalleryPage />} />
+              <Route path='/blog/:blogId' element={<BlogDetailPage />} /> 
             </Routes>
           )
       }

@@ -9,7 +9,8 @@
 }
 
 .blogCard:hover {
-    border: 1px solid #D3C1AE;
+    /* border: 1px solid #D3C1AE; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .blogCard a {
@@ -17,10 +18,10 @@
     color: grey;
 }
 
-.blogCard a:hover {
+/* .blogCard a:hover {
     text-decoration: none;
     color: #D3C1AE;
-}
+} */
 
 .blogCardBg {
     background-color: #F6F2EF;
@@ -69,7 +70,6 @@
 
 .blogCard:hover .buttons {
     opacity: 1;
-    /* Show the buttons when card is hovered over */
 }
 
 .button {
@@ -78,4 +78,8 @@
     width: 50%;
     font-size: 20px;
     opacity: 0.7;
+}
+
+.communityBlogCard .blogCard .buttons {
+    display: none;
 }

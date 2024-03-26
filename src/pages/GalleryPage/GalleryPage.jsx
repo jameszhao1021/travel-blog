@@ -28,9 +28,6 @@ function GalleryPage({ user, uploadImage }) {
         <>
         <div className="pageTitle">Photo Gallery</div>
             <div className="pageDescription">Every picture tells a story. Share your favourite discoveries</div>
-            
-            
-
             <div>
                 { user && 
                     <div className="d-flex justify-content-end">
