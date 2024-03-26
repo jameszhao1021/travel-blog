@@ -5,15 +5,12 @@ import './InteractiveMap.css';
 
 const InteractiveMap = () => {
   // Reference for the map container element
-  console.log(import.meta.env.REACT_APP_MAPBOXAPI)
   const mapContainer = useRef(null);
 
   // Initialize map when component mounts
   useEffect(() => {
     // Mapbox access token
-    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9yZGFuamFuc3plbiIsImEiOiJjbHRnb2hzN3oxMHJhMmtvMzBhMmhudDk5In0.a0BW_3DBloyNqu-OOBR5FA';
-    // mapboxgl.accessToken = import.meta.env.REACT_APP_MAPBOXAPI
-
+    mapboxgl.accessToken = import.meta.env.VITE_APP_MAPBOXAPI
 
     // Initialize map instance
     const map = new mapboxgl.Map({
