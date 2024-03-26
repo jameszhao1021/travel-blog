@@ -34,6 +34,7 @@ const BlogFormModal = ({ blog, toggleFormModal, showFormModal, uploadImage, blog
   }
 
   function resetAfterClose() {
+    setSelectedCountry('')
     setEditBlog(null)
   }
 
