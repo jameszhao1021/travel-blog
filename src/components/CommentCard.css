@@ -1,6 +1,6 @@
 .comment-card {
     padding: 15px;
-    border-bottom: 1px solid #f0e2d3;
+    border-bottom: 1px solid #F0E2D3;
     width: 500px;
     margin-bottom: 20px;
 }
@@ -9,28 +9,22 @@
     font-size: 1.1rem;
     font-weight: 100;
     text-align: left;
-
 }
 .comment-text {
     text-align: left;
 }
-
   .comment-actions {
     text-align: right;
     display: none;
   }
-  
   .comment-card:hover .comment-actions {
     display: block;
   }
-  
-
   .button-custom {
-    border-color: #f2d5b6 !important;
+    border-color: #F2D5B6 !important;
     color: grey !important;
   }
-  
 .button-custom:hover {
-    background-color: #f2d5b6 !important;
+    background-color: #F2D5B6 !important;
     color: #fff !important;
 }
