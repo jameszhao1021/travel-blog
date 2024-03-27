@@ -1,0 +1,15 @@
+.comment-card {
+    position: relative;
+  }
+  
+  .comment-actions {
+    display: none;
+    position: absolute;
+    right: 10px; 
+    top: 10px; 
+  }
+  
+  .comment-card:hover .comment-actions {
+    display: block;
+  }
+  

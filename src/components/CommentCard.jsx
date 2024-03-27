@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import { getUser } from '../utilities/users-service';
-
+import './CommentCard.css';
 
 function CommentCard({ comment, deleteComment, startEditComment }) {
   const { createdAt, text, userName, user } = comment;
