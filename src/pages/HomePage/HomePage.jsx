@@ -13,11 +13,9 @@ function HomePage(){
 
 
     return(
-        <div style={{height: '100vh'}}>
+        <>
             <div className="home-page">
                 <div className="pageTitle">Travel WikkiMedia</div>
-                
-                
                 {/* <div className="home-page-pic">
                     <img src="/homepage-pic2.jpg" alt="travel picture 2" />
                     <img src="/homepage-pic3.jpg" alt="travel picture 3" />
@@ -34,10 +32,9 @@ function HomePage(){
                     <div  className="buttonContainer">
                         <button type="button" className="btn btn-info button-custom-home" onClick={navigateToCommunity}>Start Your Journey</button>
                     </div>
-
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

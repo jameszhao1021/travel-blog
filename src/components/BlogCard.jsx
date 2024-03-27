@@ -17,7 +17,7 @@ function BlogCard({ blog, index, handleDelete, toggleFormModal, setEditBlog }) {
                     <div className='blogCardBg'>
                         <Link to={`/blog/${blog._id}`}>
                             <div className="d-flex flex-column justify-content-between" style={{ height: '100%' }}>
-                            <div className=" backGoundImage col-lg-12" style={{ backgroundImage: `url(${blog.preview})`, backgroundSize: 'cover' }}></div>
+                            <div className=" col-lg-12" style={{ backgroundImage: `url(${blog.preview})`, backgroundSize: 'cover', height: '60%' }}></div>
                                 <div className='blogTitle'>{blog.title}</div>
                                 <div className='blogBottomText'>{blog.country}</div>
                             </div>

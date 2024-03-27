@@ -1,0 +1,74 @@
+.card-custom {
+  height: 500px;
+  border: 1px solid rgb(219, 219, 219);
+  position: relative;
+
+}
+
+.card-body {
+  padding: 1rem 2rem !important;
+  text-align: left;
+}
+
+.gallery-image {
+    height: 50%;
+    width: 100%;
+    background-size: cover;
+}
+
+.card-title {
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: #987558 !important;
+}
+
+.country-div {
+  border-bottom: 1px solid hsl(24, 21%, 91%);
+  padding: 0.5rem 12px 1rem 12px;
+  overflow-y: auto;
+}
+
+.gallery-text {
+  letter-spacing: 0.1rem;
+  font-weight: 300;
+  padding: 0 12px;
+  overflow-y: auto;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+
+  
+  @media (min-width: 768px) {
+    .carousel-image {
+      height: 300px
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .carousel-image {
+      height: 400px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .carousel-image {
+      height: 500px;
+    }
+  }
+
+  .carousel-title {
+    font-weight: 200;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+
+ .carousel-caption {
+  background-color: rgba(96, 73, 40, 0.4);
+ }

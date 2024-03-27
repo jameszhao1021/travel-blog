@@ -1,0 +1,17 @@
+.comment-card {
+    padding: 15px;
+    border-bottom: 1px solid #f0e2d3;
+    width: 500px;
+    margin-bottom: 20px;
+}
+.comment-user {
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    font-weight: 100;
+    text-align: left;
+
+}
+.comment-text {
+    text-align: left;
+}
+

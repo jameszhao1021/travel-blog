@@ -4,7 +4,7 @@ import CommentCard from './CommentCard';
 function CommentsList({ comments }) {
 
     if (comments.length === 0) {
-        return <p style= {{color: 'black'}}>No Comments Yet!</p>
+        return <div style= {{ letterSpacing: "2px", fontWeight: "200", fontSize: "1rem"}}>No Comments Yet!</div>
     }
   return (
     <div>
