@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import CountrySelectForm from '../../components/CountrySelectForm'
 import BlogForm from "../../components/BlogForm";
 import BlogFormModal from "../../components/BlogFormModal";
@@ -37,6 +37,8 @@ function MyBlogPage({ user, uploadImage }) {
         });
     }, []);
 
+    const markedCountries = useMemo(() => blogs.map(blog => blog.country), [blogs])
+
     async function handleDelete(blogId) {
         try {
             // Call the deleteBlog function from the API, passing the blogId
@@ -71,7 +73,7 @@ function MyBlogPage({ user, uploadImage }) {
                     </div>
 
                     <div className="col-lg-8">
-                        <InteractiveMap selectedCountry={selectedCountry} />
+                        <InteractiveMap markedCountries={markedCountries} />
                     </div> 
                 </div>
             </div>

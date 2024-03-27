@@ -1,17 +1,38 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import PropTypes from "prop-types";
+import axios from 'axios';
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./InteractiveMap.css";
 
 mapboxgl.accessToken = import.meta.env.VITE_APP_MAPBOXAPI;
 
-const InteractiveMap = ({ selectedCountry }) => {
+const InteractiveMap = ({ markedCountries }) => {
   // Reference for the map container element
   const mapContainer = useRef(null);
   const map = useRef(null);
+
+  const [countryData, setCountryData] = useState([]);
+  useEffect(() => {
+    // Fetch list of countries from the API
+    async function fetchCountries(){
+      try {
+        const response = await axios.get('https://restcountries.com/v3.1/all');
+        const countryOptions = response.data.map(country => ({
+          name: country.name.common,
+          latlng: country.latlng
+        }));
+
+        setCountryData(countryOptions);
+      } catch (error) {
+        console.error('Error fetching countries:', error);
+      }
+    }
+
+    fetchCountries();
+  }, [setCountryData])
 
   // Initialize map when component mounts
   useEffect(() => {
@@ -75,29 +96,38 @@ const InteractiveMap = ({ selectedCountry }) => {
     return () => map.current.remove();
   }, []);
 
+  const [markers, setMarkers] = useState([])
   useEffect(() => {
-    console.log(selectedCountry);
     if (map.current === null) return;
-    // Add marker when selectedCountry changes
-    if (selectedCountry && selectedCountry.latlng) {
-      const [lat, lng] = selectedCountry.latlng;
-      const marker = new mapboxgl.Marker({
+    if (markedCountries.length === 0 || countryData.length === 0) return;
+
+    const markedLatLngs = markedCountries.map(country => countryData.find(data => data.name === country)?.latlng);
+
+    const countriesWithMarkers = markedCountries.filter(country => markers.find(marker => [marker.getLngLat().lat, marker.getLngLat().lng].toString() == countryData.find(data => data.name === country)?.latlng.toString()))
+    const countriesWithoutMarkers = markedCountries.filter(country => !countriesWithMarkers.includes(country));
+    const extraMarkers = markers.filter(marker => !markedLatLngs.find(latLng => latLng.toString() == [marker.getLngLat().lat, marker.getLngLat().lng].toString()))
+    
+    
+    countriesWithoutMarkers.forEach(country => {
+      const countryLatLng = countryData.find(data => data.name === country)?.latlng;
+      const [lat, lng] = countryLatLng;
+      setMarkers(current => ([...current, new mapboxgl.Marker({
         color: "red",
         draggable: false,
       })
         .setLngLat([lng, lat])
-        .addTo(map.current);
-    }
-  }, [selectedCountry]);
+        .addTo(map.current)]))
+    })
+
+    // setMarkers(current => current.filter(marker => !extraMarkers.includes(marker)));
+    extraMarkers.forEach(marker => marker.remove())
+  }, [markedCountries, countryData, markers]);
 
   return <div ref={mapContainer} className="interactive-map-container" />;
 };
 
 InteractiveMap.propTypes = {
-  selectedCountry: PropTypes.shape({
-    latlng: PropTypes.arrayOf(PropTypes.number), // Assuming latlng is an array of numbers [lng, lat]
-    // Add other properties of selectedCountry if needed
-  }),
+  markedCountries: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default InteractiveMap;
