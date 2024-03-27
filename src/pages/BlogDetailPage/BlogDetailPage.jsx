@@ -9,6 +9,9 @@ import './BlogDetailPage.css';
 function BlogDetailPage() {
   const [blog, setBlog] = useState(null);
   const [comments, setComments] = useState([]); 
+  const [editingComment, setEditingComment] = useState(null);
+
+
   const { blogId } = useParams();
 
   useEffect(() => {
@@ -34,8 +37,29 @@ function BlogDetailPage() {
     await blogsAPI.deleteComment(id);
     const updatedComments = comments.filter((c) => c._id !== id);
     setComments(updatedComments);
-    console.log(updatedComments);
+    // console.log(updatedComments);
 }
+
+function startEditComment(comment) {
+  setEditingComment(comment);
+// console.log(comment);
+}
+
+async function updateComment(id, updatedData) {
+    console.log(id, updatedData);
+  try {
+    const commentUpdated = await blogsAPI.updateBlogComment(id, updatedData);
+    const commentsUpdated = comments.map(comment =>
+      comment._id === id ? commentUpdated : comment
+    );
+
+    setComments(commentsUpdated);
+    setEditingComment(null); 
+  } catch (error) {
+    console.error('Error updating comment:', error);
+  }
+}
+
   
   if (!blog) { 
     return <div>Loading...</div>;
@@ -57,12 +81,12 @@ function BlogDetailPage() {
       </div>
       <div className="row mt-4 justify-content-center">
         <div className="col-md-8">
-          <CommentForm addComment={addComment}/>
+          <CommentForm addComment={addComment} editingComment={editingComment} updateComment={updateComment} />
         </div>
       </div>
       <div className="row mt-4 justify-content-center">
         <div className="col-md-8">
-          <CommentsList comments={comments} deleteComment={deleteComment} />
+          <CommentsList comments={ comments } deleteComment={ deleteComment } startEditComment= { startEditComment }/>
         </div>
       </div>
     </div>

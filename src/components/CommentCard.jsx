@@ -1,8 +1,8 @@
 import React from 'react';
 
-function CommentCard({ comment, deleteComment }) {
+function CommentCard({ comment, deleteComment, startEditComment }) {
   const { createdAt, text, userName } = comment;
-  console.log('comment is:', comment);
+  // console.log('comment is:', comment);
 
 
   const formattedDate = new Date(createdAt).toLocaleString();
@@ -17,9 +17,7 @@ function CommentCard({ comment, deleteComment }) {
         <p className="card-text">{formattedDate}</p>
         <p className="card-text">{text}</p>
         <button onClick={() => deleteComment(comment._id)} title="Delete">&times;</button>
-        <button onClick={() => EditComment(comment._id)} title="Edit">✎</button>
-
-        
+        <button onClick={() => startEditComment(comment)} title="Edit">✎</button>
       </div>
     </div>
   );

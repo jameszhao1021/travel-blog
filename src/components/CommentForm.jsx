@@ -1,17 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 
-function CommentForm({ addComment }) {
- const [newComment, setNewComment] = useState('');
+function CommentForm({ addComment, editingComment, updateComment  }) {
 
+const [commentText, setCommentText] = useState('');
+
+
+  
+  useEffect(() => {
+    if (editingComment) {
+      setCommentText(editingComment.text);
+    //  console.log(editingComment);
+    }
+  }, [editingComment]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    if (editingComment) {
+      updateComment(editingComment._id, {text: commentText });
+     
+    } else {
+      addComment({ text: commentText });
+    }
+    setCommentText('');
+  };
+//  const [newComment, setNewComment] = useState('');
 //  console.log(newComment);
 
 
- const handleSubmit = (event) => {
-    event.preventDefault();
-    addComment({ text: newComment });
-    // console.log('new Comment is:', newComment);
-    setNewComment('');
- }
+//  const handleSubmit = (event) => {
+//     event.preventDefault();
+//     addComment({ text: newComment });
+//     // console.log('new Comment is:', newComment);
+//     setNewComment('');
+//  }
 
  return (
     <form onSubmit={handleSubmit}>
@@ -21,12 +43,15 @@ function CommentForm({ addComment }) {
                 className="form-control" 
                 id="comment" 
                 rows="3" 
-                value={newComment}
-                onChange={(event) => setNewComment(event.target.value)}
+                value={commentText}
+                onChange={(event) => setCommentText(event.target.value)}
                 required
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            {/* <button type="submit" className="btn btn-primary">Submit</button> */}
+            <button type="submit" className="btn btn-primary">
+              {editingComment ? 'Update Comment' : 'Add Comment'}
+            </button>
           </form>
    )
   }

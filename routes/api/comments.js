@@ -8,6 +8,8 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 router.post('/api/blogs/:id/comments', ensureLoggedIn, commentsController.addComment);
 // DELETE /api/comments/:id
 router.delete('/api/comments/:id', ensureLoggedIn, commentsController.delete);
+// PUT /api/comments/:id
+router.put('/api/comments/:id', ensureLoggedIn, commentsController.update);
 
 
 
