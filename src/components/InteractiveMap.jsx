@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react';
-import mapboxgl from 'mapbox-gl';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import PropTypes from 'prop-types';
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import './InteractiveMap.css';
+import { useEffect, useRef } from "react";
+import mapboxgl from "mapbox-gl";
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import PropTypes from "prop-types";
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import "mapbox-gl/dist/mapbox-gl.css";
+import "./InteractiveMap.css";
 
 mapboxgl.accessToken = import.meta.env.VITE_APP_MAPBOXAPI;
 
@@ -18,14 +18,14 @@ const InteractiveMap = ({ selectedCountry }) => {
     // Initialize map instance
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v11', // Map style URL
+      style: "mapbox://styles/mapbox/streets-v11", // Map style URL
       center: [0, 20], // starting position [lng, lat]
       zoom: 1.2, // starting zoom
     });
 
     map.current.addControl(new mapboxgl.NavigationControl());
 
-    map.current.on('style.load', () => {
+    map.current.on("style.load", () => {
       map.current.setFog({});
     });
 
@@ -50,14 +50,14 @@ const InteractiveMap = ({ selectedCountry }) => {
       }
     }
 
-    map.current.on('mousedown', () => {
+    map.current.on("mousedown", () => {
       userInteracting = true;
     });
-    map.current.on('dragstart', () => {
+    map.current.on("dragstart", () => {
       userInteracting = true;
     });
 
-    map.current.on('moveend', () => {
+    map.current.on("moveend", () => {
       spinGlobe();
     });
 
@@ -67,7 +67,7 @@ const InteractiveMap = ({ selectedCountry }) => {
     const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,
-      placeholder: 'Search for a location',
+      placeholder: "Search for a location",
     });
     map.current.addControl(geocoder);
 
@@ -76,30 +76,28 @@ const InteractiveMap = ({ selectedCountry }) => {
   }, []);
 
   useEffect(() => {
-    console.log(selectedCountry)
-    if (map.current === null) return
-      // Add marker when selectedCountry changes
-      if (selectedCountry && selectedCountry.latlng) {
-        const [lat, lng] = selectedCountry.latlng;
-        const marker = new mapboxgl.Marker({
-        color: 'red',
+    console.log(selectedCountry);
+    if (map.current === null) return;
+    // Add marker when selectedCountry changes
+    if (selectedCountry && selectedCountry.latlng) {
+      const [lat, lng] = selectedCountry.latlng;
+      const marker = new mapboxgl.Marker({
+        color: "red",
         draggable: false,
       })
         .setLngLat([lng, lat])
         .addTo(map.current);
     }
-   
-    }, [selectedCountry]);
-
+  }, [selectedCountry]);
 
   return <div ref={mapContainer} className="interactive-map-container" />;
 };
 
 InteractiveMap.propTypes = {
-    selectedCountry: PropTypes.shape({
-      latlng: PropTypes.arrayOf(PropTypes.number), // Assuming latlng is an array of numbers [lng, lat]
-      // Add other properties of selectedCountry if needed
-    }),
-  };
+  selectedCountry: PropTypes.shape({
+    latlng: PropTypes.arrayOf(PropTypes.number), // Assuming latlng is an array of numbers [lng, lat]
+    // Add other properties of selectedCountry if needed
+  }),
+};
 
 export default InteractiveMap;
