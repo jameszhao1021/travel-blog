@@ -3,7 +3,8 @@ const countryContinentMapping = require('../../models/countryContinentMapping');
 
 async function index(req, res) {
   try {
-    const blogs = await Blog.find({ user: req.user._id });
+    const blogs = await Blog.find({ user: req.user._id }).populate('user', 'name');
+    console.log(blogs);
     res.json(blogs);
   } catch (err) {
     res.status(400).json(err);

@@ -8,13 +8,15 @@ import './BlogDetailPage.css';
 import ShareIcon from '../../components/ShareIcon';
 
 
-function BlogDetailPage() {
+function BlogDetailPage(user) {
   const [blog, setBlog] = useState(null);
   const [comments, setComments] = useState([]); 
   const [editingComment, setEditingComment] = useState(null);
-
+  const [formattedDate, setFormattedDate] = useState(null);
 
   const { blogId } = useParams();
+  console.log('here: ', blog);
+
 
   useEffect(() => {
     if (blogId) {
@@ -22,6 +24,12 @@ function BlogDetailPage() {
         .then(blogDetail => {
           setBlog(blogDetail);
           setComments(blogDetail.comments); 
+
+          const dateTime = new Date(blogDetail.createdAt);
+          const formattedDate = dateTime.toLocaleDateString();
+          setFormattedDate(formattedDate);
+
+          console.log(blogDetail.user.name);
         })
         .catch(error => {
           console.error('Error fetching blog details:', error);
@@ -68,6 +76,8 @@ async function updateComment(id, updatedData) {
     return <div>Loading...</div>
   }
 
+
+
   return (
     <div className="container blogDetailContainer">
       <div className="row my-2 justify-content-end">
@@ -86,7 +96,7 @@ async function updateComment(id, updatedData) {
         <div className='d-flex justify-content-center align-items-center'>
           <div className=''><img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" className="rounded-circle" height="40px" width="40px" alt="avatar" /></div>
           <div className='align-items-center mx-4 userNameDiv'>
-            Username | 27 Mar 2024 in {blog.country}
+            {blog.user.name} | {formattedDate} in {blog.country}
           </div>
         </div>
 
