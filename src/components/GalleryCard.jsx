@@ -10,8 +10,15 @@ function GalleryCard({ gallery, index, user }) {
     const dateTimeString = gallery.updatedAt;
     const dateTime = new Date(dateTimeString);
     const formattedDate = dateTime.toLocaleDateString();
-    const userName = gallery.user.name;
-    console.log(gallery);
+    const [isRendered, setIsRendered] = useState(false);
+    const [userName, setUserName] = useState('');
+    
+
+    useEffect(() => {
+        setIsRendered(true);
+        setUserName(gallery.user);
+        console.log(gallery.user);
+    }, []);
 
 
     return (
@@ -24,7 +31,7 @@ function GalleryCard({ gallery, index, user }) {
                             <div className='d-flex justify-content-center align-items-center'>
                                 <div className=''><img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" className="rounded-circle" height="40px" width="40px" alt="avatar" /></div>
                                 <div className='align-items-center mx-4 userNameDiv'>
-                                {userName} | {formattedDate}
+                                {isRendered && `${userName} |`} {formattedDate}
                                 </div>
                             </div>
 

@@ -24,6 +24,8 @@ function MyBlogPage({ user, uploadImage }) {
 
     const [selectedCountry, setSelectedCountry] = useState(null);
 
+    
+
     function toggleFormModal() {
         setShowFormModal(prev => !prev);
       

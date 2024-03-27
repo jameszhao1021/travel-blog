@@ -34,6 +34,7 @@
   font-weight: 300;
   padding: 0 12px;
   overflow-y: auto;
+  max-height: 95px;
 }
 
 .carousel-image {
