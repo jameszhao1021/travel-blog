@@ -27,8 +27,8 @@ function MyBlogPage({ user, uploadImage }) {
     const [selectedCountry, setSelectedCountry] = useState(null);
 
     const [profile, setProfile] = useState({
-        picture: '../../../public/images/profile.png',
-        bio: '🌍 Wanderlust Enthusiast\n🏔️ Adventure Seeker\nStoryteller ✈️'
+        // picture: '../../../public/images/profile.png',
+        // bio: '🌍 Wanderlust Enthusiast\n🏔️ Adventure Seeker\nStoryteller ✈️'
     })
 
     const [editProfile, setEditProfile] = useState(null)
@@ -86,9 +86,9 @@ function MyBlogPage({ user, uploadImage }) {
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-4 profile">
-                        <div ><img src={profile.picture == undefined ? '../../../public/images/profile.png' : profile.picture} className="profileImage" alt="Profile" style={{ maxWidth: '250px', maxHeight: '250px' }} /></div>
+                        <div ><img src={profile.picture} className="profileImage" alt="Profile" style={{ maxWidth: '250px', maxHeight: '250px' }} /></div>
                         <div>{user.name}</div>
-                        <div className="bio">{profile.bio === undefined ? `🌍 Wanderlust Enthusiast\n🏔️ Adventure Seeker\nStoryteller ✈️` : profile.bio}</div>
+                        <div className="bio">{profile.bio}</div>
                         <button className="btn button-custom" onClick={toggleProfileModal}>Edit profile</button>
                         <ProfileFormModal profile={profile} setProfile={setProfile} uploadImage={uploadImage} showProfileModal={showProfileModal} toggleProfileModal={toggleProfileModal} editProfile={editProfile} setEditProfile={setEditProfile} user={user} newProfile={newProfile} setNewProfile={setNewProfile} />
                     </div>

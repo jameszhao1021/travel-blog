@@ -10,11 +10,11 @@ const userSchema = new Schema({
     },
     picture: {
       type: String, 
-      required: false
+      default: '../../../public/images/profile.png' 
     },
     bio: {
       type: String, 
-      required: false
+      default: 'Show your bio here' 
     },
     email: {
       type: String,
