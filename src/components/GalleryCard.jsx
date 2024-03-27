@@ -1,9 +1,19 @@
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+
 import './GalleryCard.css'
 
 
 
-function GalleryCard({ gallery, index }) {
+function GalleryCard({ gallery, index, user }) {
+
+    const dateTimeString = gallery.updatedAt;
+    const dateTime = new Date(dateTimeString);
+    const formattedDate = dateTime.toLocaleDateString();
+    const userName = gallery.user.name;
+    console.log(gallery);
+
+
     return (
         <>
                 <div className="col-4 my-2 py-3 px-4">
@@ -14,7 +24,7 @@ function GalleryCard({ gallery, index }) {
                             <div className='d-flex justify-content-center align-items-center'>
                                 <div className=''><img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" className="rounded-circle" height="40px" width="40px" alt="avatar" /></div>
                                 <div className='align-items-center mx-4 userNameDiv'>
-                                Username | 27 Mar 2024
+                                {userName} | {formattedDate}
                                 </div>
                             </div>
 

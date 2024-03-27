@@ -23,7 +23,7 @@ function GalleryPage({ user, uploadImage }) {
     }, []);
 
     const galleryCards = galleries.map((gallery, index) => (
-        <GalleryCard key={index} gallery={gallery} />
+        <GalleryCard key={index} gallery={gallery} user={user}/>
     ))
     return (
         <>

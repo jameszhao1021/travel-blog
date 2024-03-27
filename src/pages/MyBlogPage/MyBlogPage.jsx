@@ -56,7 +56,7 @@ function MyBlogPage({ user, uploadImage }) {
         <BlogCard newBlog={newBlog} setNewBlog={setNewBlog}  key={index} blog={blog} setBlogs={setBlogs} setEditBlog={setEditBlog} toggleFormModal={toggleFormModal} handleDelete={handleDelete} showFormModal={showFormModal} />
     ))
     return (
-        <>
+        <div className="container">
         <div className="pageTitle">My Blog</div>
 
             <div className="container">
@@ -94,7 +94,7 @@ function MyBlogPage({ user, uploadImage }) {
                     {blogCards}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 export default MyBlogPage;
