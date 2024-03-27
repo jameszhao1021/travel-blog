@@ -36,7 +36,7 @@ To view the website, click this link: [Travel Wikkimedia](https://travel-wikkime
 
 ## UX / UI
 
-We used Bootstrap and some custom CSS to make the website as professional as possible. Simple yet efficient and clean look has been achieved.
+We used Bootstrap and some custom CSS to make the website look as professional as possible. Simple yet efficient and clean look has been achieved.
 
 ## Next Steps
 
