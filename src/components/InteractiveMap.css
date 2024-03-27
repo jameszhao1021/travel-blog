@@ -1,7 +1,7 @@
 .interactive-map-container {
     width: 100%;
     height: 300px;
-    border-radius: 20%;
+    border-radius: 0%;
     font-size: 8px;
     padding: 10px;
   }

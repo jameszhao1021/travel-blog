@@ -29,3 +29,11 @@ export function getBlogDetails(blogId) {
 export function createBlogComment(blogId, comment) {
   return sendRequest(`${BASE_URL}/${blogId}/comments`, 'POST', comment);
 }
+
+export function deleteComment(id) {
+  return sendRequest(`/api/comments/${id}`, 'DELETE');
+}
+
+export function updateBlogComment( id, updatedData) {
+  return sendRequest(`/api/comments/${id}`, 'PUT', updatedData);
+}

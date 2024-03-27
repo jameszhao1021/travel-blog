@@ -15,3 +15,21 @@
     text-align: left;
 }
 
+  .comment-actions {
+    text-align: right;
+  }
+  
+  .comment-card:hover .comment-actions {
+    display: block;
+  }
+  
+
+  .button-custom {
+    border-color: #f2d5b6 !important;
+    color: grey !important;
+  }
+  
+.button-custom:hover {
+    background-color: #f2d5b6 !important;
+    color: #fff !important;
+}

@@ -22,7 +22,7 @@ function MyBlogPage({ user, uploadImage }) {
 
     const [editBlog, setEditBlog] = useState(null)
 
-
+    const [selectedCountry, setSelectedCountry] = useState(null);
 
     function toggleFormModal() {
         setShowFormModal(prev => !prev);
@@ -69,7 +69,7 @@ function MyBlogPage({ user, uploadImage }) {
                     </div>
 
                     <div className="col-lg-8">
-                        <InteractiveMap />
+                        <InteractiveMap selectedCountry={selectedCountry} />
                     </div> 
                 </div>
             </div>
@@ -84,7 +84,7 @@ function MyBlogPage({ user, uploadImage }) {
                 </div>
                 <div className="">
                         <button className="btn button-custom" onClick={toggleFormModal}>Create Blog</button>
-                        <BlogFormModal newBlog={newBlog} setNewBlog={setNewBlog} uploadImage={uploadImage} blogs={blogs} setBlogs={setBlogs} showFormModal={showFormModal} toggleFormModal={toggleFormModal} editBlog={editBlog} setEditBlog={setEditBlog}/>
+                        <BlogFormModal newBlog={newBlog} setNewBlog={setNewBlog} uploadImage={uploadImage} blogs={blogs} setBlogs={setBlogs} showFormModal={showFormModal} toggleFormModal={toggleFormModal} editBlog={editBlog} setEditBlog={setEditBlog} selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry}/>
                 </div>
             </div>
             

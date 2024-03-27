@@ -1,16 +1,26 @@
-import React from 'react';
-import './CommentCard.css'
+import {useState, useEffect} from 'react';
+import { getUser } from '../utilities/users-service';
+import './CommentCard.css';
 
-function CommentCard({ comment }) {
-  const { createdAt, text, userName } = comment;
-  console.log('comment is:', comment);
-
-
+function CommentCard({ comment, deleteComment, startEditComment }) {
+  const { createdAt, text, userName, user } = comment;
+  //  console.log('comment is:', comment);
   const formattedDate = new Date(createdAt).toLocaleString();
+  const [currentUser, setCurrentUser] = useState(null);
 
-  // If comment.user is an object containing user information, display the username
-  // const username = user.name;
+  useEffect(() => {
+    const loggedInUser = getUser();
+    // console.log("Logged in user:", loggedInUser);
+    setCurrentUser(loggedInUser );
+  }, []);
+  
+  // console.log('user:', user);
+  // console.log('currentUser:', currentUser);
+  const isCurrentUser = currentUser && user === currentUser._id;
+  // console.log(isCurrentUser);
 
+  
+  
   return (
     <div className="d-flex justify-content-center">
       <div className="comment-card">
@@ -18,8 +28,15 @@ function CommentCard({ comment }) {
           <strong>{userName}</strong> | <span>{formattedDate}</span>
         </div>
         <div className="comment-text my-2">{text}</div>
-      </div>
+        {isCurrentUser && (
+          <div className="comment-actions">
+             <button className='btn button-custom mx-2' onClick={() => deleteComment(comment._id)} title="Delete">🗑</button>
+             <button className='btn button-custom' onClick={() => startEditComment(comment)} title="Edit">✎</button>
+          </div> 
+        )}
     </div>
+    </div>
+        
     
   );
 }
