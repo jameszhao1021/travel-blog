@@ -5,7 +5,7 @@ import CommentForm from '../../components/CommentForm';
 import CommentsList from '../../components/CommentsList'; 
 import * as blogsAPI from '../../utilities/blogs-api';
 import './BlogDetailPage.css';
-import * as Icon from 'react-bootstrap-icons';
+import ShareIcon from '../../components/ShareIcon';
 
 
 function BlogDetailPage() {
@@ -69,13 +69,10 @@ async function updateComment(id, updatedData) {
   }
 
   return (
-    <div className="container px-5">
-      <div className="row justify-content-end">
-        
-        <div className='col-sm-2'>
-          <Icon.Share className='mx-3 my-2'/>
-          <Icon.Bookmark />
-        </div>
+    <div className="container">
+      <div className="row my-2 justify-content-end">
+
+        <ShareIcon />
       </div>
 
       <div className="container">
@@ -99,22 +96,17 @@ async function updateComment(id, updatedData) {
         </div>
         
         
-        <div className="divideComment" style={{borderTop: "1px solid #d3c1ae"}}></div>
+          <div className="divideComment" style={{borderTop: "1px solid #d3c1ae"}}></div>
 
+          <div className="">
+              <CommentForm addComment={addComment} editingComment={editingComment} updateComment={updateComment} />
+          </div>
 
-          
+          <div className="">
+            <CommentsList comments={ comments } deleteComment={ deleteComment } startEditComment= { startEditComment }/>
+          </div>
+      </div>
 
-      </div>
-      <div className="row mt-4 justify-content-center">
-        <div className="col-md-8">
-          <CommentForm addComment={addComment} editingComment={editingComment} updateComment={updateComment} />
-        </div>
-      </div>
-      <div className="row mt-4 justify-content-center">
-        <div className="col-md-8">
-          <CommentsList comments={ comments } deleteComment={ deleteComment } startEditComment= { startEditComment }/>
-        </div>
-      </div>
     </div>
   );
 }

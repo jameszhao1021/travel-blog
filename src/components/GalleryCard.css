@@ -27,7 +27,6 @@
 .country-div {
   border-bottom: 1px solid hsl(24, 21%, 91%);
   padding: 0.5rem 12px 1rem 12px;
-  overflow-y: auto;
 }
 
 .gallery-text {
