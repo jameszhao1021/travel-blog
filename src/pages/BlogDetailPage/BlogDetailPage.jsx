@@ -75,11 +75,7 @@ async function updateComment(id, updatedData) {
         <ShareIcon />
       </div>
 
-<<<<<<< HEAD
-      <div className="container">
-=======
       <div className="container ">
->>>>>>> b2f97bf8350c62b8805717c84f89b026afd869b5
         <div className="blog-title col">
           {blog.title}
           <div className="d-flex justify-content-center">
