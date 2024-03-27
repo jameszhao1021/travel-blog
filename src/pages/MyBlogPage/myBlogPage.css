@@ -33,3 +33,6 @@
     overflow: auto;
 }
 
+.topContainer{
+    max-height: 30%
+}

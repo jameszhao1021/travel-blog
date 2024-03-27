@@ -7,7 +7,6 @@ import BlogDeleteModal from "./BlogDeleteModal";
 function BlogCard({ blog, index, handleDelete, toggleFormModal, setEditBlog }) {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
 
-    console.log(blog.user);
     function toggleDeleteModal() {
         setShowDeleteModal(prev => !prev);
     }

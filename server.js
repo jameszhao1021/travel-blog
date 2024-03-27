@@ -13,6 +13,7 @@ app.use(require('./config/checkToken'));
 
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/blogs', require('./routes/api/blogs'));
+app.use('/api/profiles', require('./routes/api/profiles'));
 app.use('/api/galleries', require('./routes/api/galleries'));
 app.use('/', require('./routes/api/comments'));
 

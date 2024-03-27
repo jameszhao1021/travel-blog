@@ -55,8 +55,6 @@ async function deleteBlog(req, res) {
 
 async function update(req, res) {
   try {
-    // console.log('test edit feature for id: ', req.params.id);
-    // console.log('test edit feature for body: ', req.body);
     const mapping = await countryContinentMapping;
     const { country } = req.body;
     const continent = mapping[country];
