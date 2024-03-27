@@ -16,7 +16,11 @@ function GalleryCard({ gallery, index, user }) {
 
     useEffect(() => {
         setIsRendered(true);
-        setUserName(gallery.user);
+        if (gallery.user && gallery.user.name) {
+            setUserName(gallery.user.name);
+        } else if (gallery.user) {
+            setUserName(gallery.user);
+        }
         console.log(gallery.user);
     }, []);
 
