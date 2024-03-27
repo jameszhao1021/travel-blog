@@ -21,7 +21,7 @@ function CountrySelectForm({handleChange, selectedCountry, setSelectedCountry}) 
       } catch (error) {
         console.error('Error fetching countries:', error);
       }
-    };
+    }
 
     fetchCountries();
   }, []);
