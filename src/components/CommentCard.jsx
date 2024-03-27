@@ -1,23 +1,38 @@
-import React from 'react';
+import {useState, useEffect} from 'react';
+import { getUser } from '../utilities/users-service';
+
 
 function CommentCard({ comment, deleteComment, startEditComment }) {
-  const { createdAt, text, userName } = comment;
-  // console.log('comment is:', comment);
-
-
+  const { createdAt, text, userName, user } = comment;
+  //  console.log('comment is:', comment);
   const formattedDate = new Date(createdAt).toLocaleString();
+  const [currentUser, setCurrentUser] = useState(null);
 
-  // If comment.user is an object containing user information, display the username
-  // const username = user.name;
+  useEffect(() => {
+    const loggedInUser = getUser();
+    // console.log("Logged in user:", loggedInUser);
+    setCurrentUser(loggedInUser );
+  }, []);
+  
+  // console.log('user:', user);
+  // console.log('currentUser:', currentUser);
+  const isCurrentUser = currentUser && user === currentUser._id;
+  // console.log(isCurrentUser);
 
+  
+  
   return (
-    <div className="card mb-3">
+    <div className="comment-card">
       <div className="card-body">
-        <p className="card-text">User: {userName}</p>
-        <p className="card-text">{formattedDate}</p>
-        <p className="card-text">{text}</p>
-        <button onClick={() => deleteComment(comment._id)} title="Delete">&times;</button>
-        <button onClick={() => startEditComment(comment)} title="Edit">✎</button>
+         <p className="card-text">User: {userName}</p>
+         <p className="card-text">{formattedDate}</p>
+         <p className="card-text">{text}</p>
+         {isCurrentUser && (
+           <div className="comment-actions">
+              <button onClick={() => deleteComment(comment._id)} title="Delete">🗑</button>
+              <button onClick={() => startEditComment(comment)} title="Edit">✎</button>
+           </div> 
+         )}
       </div>
     </div>
   );
