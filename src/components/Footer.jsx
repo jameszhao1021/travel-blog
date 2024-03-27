@@ -3,13 +3,11 @@ import '../index.css'
 
 function Footer() {
     return (
-        <>
-        <div className="footerDiv">
+        <footer className="footer footerDiv">
             <div>
                 Copyright © Travel WikkiMedia | All Rights Reserved
             </div>
-        </div>
-        </>
+        </footer>
     )
 
 };

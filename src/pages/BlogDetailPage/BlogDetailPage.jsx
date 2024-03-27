@@ -25,6 +25,7 @@ function BlogDetailPage() {
           console.error('Error fetching blog details:', error);
         });
     }
+    console.log(blog)
   }, [blogId]);
 
   async function addComment(comment) {

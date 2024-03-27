@@ -7,23 +7,53 @@ import BlogCard from "../../components/BlogCard";
 import * as blogsAPI from '../../utilities/blogs-api';
 import InteractiveMap from "../../components/InteractiveMap";
 import '../../index.css';
-import './myBlogPage.css'
 
 
 function MyBlogPage({ user, uploadImage }) {
+    const [newBlog, setNewBlog] = useState({
+        country: '',
+        preview: '',
+        title: '',
+        text: ''
+      })
+    
     const [blogs, setBlogs] = useState([]);
-    const [showModal, setShowModal] = useState(false);
-    function toggleModal() {
-        setShowModal(prev => !prev);
+    const [showFormModal, setShowFormModal] = useState(false);
+
+    const [editBlog, setEditBlog] = useState(null)
+
+    const [selectedCountry, setSelectedCountry] = useState(null);
+
+    function toggleFormModal() {
+        setShowFormModal(prev => !prev);
+      
     }
+
     useEffect(() => {
         blogsAPI.getMyBlogs().then((blogs) => {
             setBlogs(blogs);
         });
     }, []);
 
+    async function handleDelete(blogId) {
+        try {
+            // Call the deleteBlog function from the API, passing the blogId
+            await blogsAPI.deleteBlog(blogId);
+
+            // Filter out the deleted blog from the current list of blogs
+            const updatedBlogs = blogs.filter(blog => blog._id !== blogId);
+
+            // Update the state with the new list of blogs
+            setBlogs(updatedBlogs);
+
+            console.log("Blog deleted successfully");
+        } catch (error) {
+            console.error("Error deleting blog:", error);
+        }
+    }
+
     const blogCards = blogs.map((blog, index) => (
-        <BlogCard key={index} blog={blog} />
+        <BlogCard newBlog={newBlog} setNewBlog={setNewBlog}  key={index} blog={blog} setBlogs={setBlogs} setEditBlog={setEditBlog} toggleFormModal={toggleFormModal} handleDelete={handleDelete} showFormModal={showFormModal} />
     ))
     return (
         <>
@@ -39,7 +69,7 @@ function MyBlogPage({ user, uploadImage }) {
                     </div>
 
                     <div className="col-lg-8">
-                        <InteractiveMap />
+                        <InteractiveMap selectedCountry={selectedCountry} />
                     </div> 
                 </div>
             </div>
@@ -53,8 +83,8 @@ function MyBlogPage({ user, uploadImage }) {
                         </select>
                 </div>
                 <div className="">
-                        <button className="btn button-custom" onClick={toggleModal} >Create Blog</button>
-                        <BlogFormModal uploadImage={uploadImage} blogs={blogs} setBlogs={setBlogs} showModal={showModal} toggleModal={toggleModal} />
+                        <button className="btn button-custom" onClick={toggleFormModal}>Create Blog</button>
+                        <BlogFormModal newBlog={newBlog} setNewBlog={setNewBlog} uploadImage={uploadImage} blogs={blogs} setBlogs={setBlogs} showFormModal={showFormModal} toggleFormModal={toggleFormModal} editBlog={editBlog} setEditBlog={setEditBlog} selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry}/>
                 </div>
             </div>
             

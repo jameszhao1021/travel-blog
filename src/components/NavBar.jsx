@@ -34,7 +34,7 @@ function toggleModal(){
               user ? (
                 <>
                   <Nav.Link href="/myblog" className="me-4">My Blog</Nav.Link>
-                  <Nav.Link onClick={handleLogout} className="me-4">Logout</Nav.Link>
+                  <Nav.Link href="/" onClick={handleLogout} className="me-4">Logout</Nav.Link>
                 </>
               ) : (
                 <Nav.Link onClick={toggleModal}>Sign in</Nav.Link>

@@ -19,7 +19,6 @@ const commentSchema = new Schema({
 const blogSchema = new Schema({
     continent:{
         type: String, 
-      
     },
     country:{
         type: String, 
@@ -46,8 +45,14 @@ const blogSchema = new Schema({
 
     blogSchema.pre('save', async function(next) {
         try {
+            const mapping = await countryContinentMapping;
+            // Check if the mapping is retrieved successfully
+            console.log('See the whole map:', mapping);
+            console.log('Current country:', this.country);
             // Lookup the continent for the selected country from the mapping
-            const continent = countryContinentMapping[this.country];
+            console.log('see the whole map: '+countryContinentMapping);
+            const continent = mapping[this.country];
+            console.log('Found continent:', continent);
             if (!continent) {
                 throw new Error('Continent not found for the selected country');
             }

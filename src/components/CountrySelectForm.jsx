@@ -5,7 +5,6 @@ import axios from 'axios';
 function CountrySelectForm({handleChange, selectedCountry, setSelectedCountry}) {
   const [countries, setCountries] = useState([]);
 
-
   useEffect(() => {
     // Fetch list of countries from the API
     async function fetchCountries(){
@@ -13,7 +12,8 @@ function CountrySelectForm({handleChange, selectedCountry, setSelectedCountry}) 
         const response = await axios.get('https://restcountries.com/v3.1/all');
         const countryOptions = response.data.map(country => ({
           value: country.name.common,
-          label: country.name.common
+          label: country.name.common,
+          latlng: country.latlng
         }));
         countryOptions.sort((a, b) => a.label.localeCompare(b.label));
 
@@ -28,13 +28,10 @@ function CountrySelectForm({handleChange, selectedCountry, setSelectedCountry}) 
 
   function handleCountryChange (selectedOption) {
     setSelectedCountry(selectedOption);
-
     handleChange({ target: { name: 'country', value: selectedOption.value } })
   };
 
   return (
-    // <div>
-    //   <h2>Choose a Country</h2>
       <Select
         name='country'
         value={selectedCountry}
@@ -42,10 +39,6 @@ function CountrySelectForm({handleChange, selectedCountry, setSelectedCountry}) 
         options={countries}
         placeholder="Select a country..."
       />
-      /* {selectedCountry && (
-        <p>Selected country: {selectedCountry.label}</p>
-      )} */
-    // </div>
   );
 }
 
