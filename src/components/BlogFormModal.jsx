@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import BlogForm from './BlogForm';
 
-const BlogFormModal = ({ blog, toggleFormModal, showFormModal, uploadImage, blogs, setBlogs, editBlog, setEditBlog, newBlog, setNewBlog }) => {
+const BlogFormModal = ({ blog, toggleFormModal, showFormModal, uploadImage, blogs, setBlogs, editBlog, setEditBlog, newBlog, setNewBlog, selectedCountry, setSelectedCountry }) => {
   const [preview, setPreview] = useState('');
   const formRef = useRef(null);
 
@@ -25,8 +25,6 @@ const BlogFormModal = ({ blog, toggleFormModal, showFormModal, uploadImage, blog
       })
     }
   }, [editBlog]);
-
-  const [selectedCountry, setSelectedCountry] = useState(null);
 
   async function addBlog(blog) {
     const newBlog = await blogsAPI.createBlog(blog);

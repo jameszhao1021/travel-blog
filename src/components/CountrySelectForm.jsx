@@ -12,7 +12,8 @@ function CountrySelectForm({handleChange, selectedCountry, setSelectedCountry}) 
         const response = await axios.get('https://restcountries.com/v3.1/all');
         const countryOptions = response.data.map(country => ({
           value: country.name.common,
-          label: country.name.common
+          label: country.name.common,
+          latlng: country.latlng
         }));
         countryOptions.sort((a, b) => a.label.localeCompare(b.label));
 
