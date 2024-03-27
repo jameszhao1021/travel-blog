@@ -13,7 +13,7 @@ export default function GalleryCarousel() {
           </Carousel.Item>
 
           <Carousel.Item>
-          <img src='../../public/images/gallery2.png' className="d-block w-100 carousel-image" alt="slide image"/ >
+          <img src='../../public/images/gallery2.png' className="d-block w-100 carousel-image" alt="slide image"/>
             <Carousel.Caption className='carousel-caption'>
               <div className='carousel-title'>Mykonos, Greece</div>
               <p>A slice of paradise</p>

@@ -10,7 +10,7 @@ function GalleryCard({ gallery, index, user }) {
     const dateTimeString = gallery.updatedAt;
     const dateTime = new Date(dateTimeString);
     const formattedDate = dateTime.toLocaleDateString();
-    const userName = gallery.user.name;
+    const userName = gallery.user;
     console.log(gallery);
 
 
