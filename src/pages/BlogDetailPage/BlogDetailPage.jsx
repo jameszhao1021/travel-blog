@@ -79,7 +79,7 @@ async function updateComment(id, updatedData) {
       </div>
 
       <div className="container">
-        <div className="blogTitle col">
+        <div className="blog-title col">
           {blog.title}
           <div className="d-flex justify-content-center">
             <div className='col-md-3 my-2' style={{borderTop: "1px solid #d3c1ae"}}></div>
