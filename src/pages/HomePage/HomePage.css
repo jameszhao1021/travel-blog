@@ -14,10 +14,9 @@
 .homeMainImage {
     background-image: url('../../../public/images/homePageImage.jpeg');
     background-size: cover;
+    background-position: center;
     margin-top: 50px;
-    height: 800px;
-    position: absolute;
-    left: 0;
+    height: 70vmin;
     width: 100%;
     padding: 10px;
     display: flex;
@@ -30,10 +29,34 @@
 
 .homeMainText {
     color: white;
-    font-size: 1.8rem;
-    font-weight: 100;
-    width: 800px;
+    font-weight: 200;
+    padding: 15px;
+    background-color: rgba(96, 73, 40, 0.4);
+    border-radius: 10px;    
 }
+
+@media (min-width: 768px) {
+    .homeMainText {
+        width: 400px;
+        font-size: 1.4rem;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .homeMainText {
+        width: 800px;
+        font-size: 1.4rem;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .homeMainText {
+        font-size: 1.8rem;
+        width: 800px;
+        background-color: none;
+    }
+  }
+
 
 .homeMainText span {
     display: block;

@@ -1,16 +1,13 @@
 .blogCard {
     height: 500px;
     border: 1px solid rgb(219, 219, 219);
-    font-weight: 200;
-    font-size: 1.3rem;
     padding: 0.6rem;
-    color: grey;
     position: relative;
 }
 
 .blogCard:hover {
     /* border: 1px solid #D3C1AE; */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(17, 15, 15, 0.1);
 }
 
 .blogCard a {
@@ -31,14 +28,16 @@
 
 
 .blogCardImage {
-    height: 290px;
-    width: 320px;
+    height: 280px;
+    width: 310px;
 }
 
 .blogTitle {
     padding: 1rem 0;
-    font-size: 1.2rem;
-
+    font-size: 1.5rem !important;
+    font-weight: 200 !important;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .blogBottomText {
@@ -47,10 +46,8 @@
     margin-top: auto;
     letter-spacing: 0.1rem;
     color: #b79979;
-}
-
-.backGoundImage {
-    height: 60%;
+    font-size: 1.2rem;
+    
 }
 
 .blogCard .buttons {

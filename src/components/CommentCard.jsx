@@ -22,19 +22,22 @@ function CommentCard({ comment, deleteComment, startEditComment }) {
   
   
   return (
-    <div className="comment-card">
-      <div className="card-body">
-         <p className="card-text">User: {userName}</p>
-         <p className="card-text">{formattedDate}</p>
-         <p className="card-text">{text}</p>
-         {isCurrentUser && (
-           <div className="comment-actions">
-              <button onClick={() => deleteComment(comment._id)} title="Delete">🗑</button>
-              <button onClick={() => startEditComment(comment)} title="Edit">✎</button>
-           </div> 
-         )}
-      </div>
+    <div className="d-flex justify-content-center">
+      <div className="comment-card">
+        <div className="comment-user">
+          <strong>{userName}</strong> | <span>{formattedDate}</span>
+        </div>
+        <div className="comment-text my-2">{text}</div>
+        {isCurrentUser && (
+          <div className="comment-actions">
+             <button className='btn button-custom mx-2' onClick={() => deleteComment(comment._id)} title="Delete">🗑</button>
+             <button className='btn button-custom' onClick={() => startEditComment(comment)} title="Edit">✎</button>
+          </div> 
+        )}
     </div>
+    </div>
+        
+    
   );
 }
 

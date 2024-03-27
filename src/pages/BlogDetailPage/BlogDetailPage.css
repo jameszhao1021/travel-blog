@@ -1,9 +1,23 @@
 
 .blog-text {
-    background-color: #fff; 
-    border: 1px solid transparent;
-    border-radius: 5px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px; 
+  letter-spacing: 0.8px;
+  font-weight: 300;
+  font-size: 1.1rem;
+    
   }
 
+.blogTitle {
+  letter-spacing: 2px;
+  font-weight: 100;
+  font-size: 3rem;
+}
+
+.userNameDiv {
+  letter-spacing: 2px;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+.divideComment {
+  margin: 3rem 0;
+}

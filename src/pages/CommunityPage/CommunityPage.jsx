@@ -32,26 +32,29 @@ function CommunityPage() {
     );
 
     return (
-        <>
+        <div className='container'>
             <div className="pageTitle">Explore Community</div>
             <div className="pageDescription">Discover the wonders of the world | Adventure awaits just around the corner</div>
-            <select className='col-lg-1' name='continent' value={continent} onChange={handleChange}>
-                <option value="All">All</option>
-                <option value="Africa">Africa</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="North America">North America</option>
-                <option value="South America">South America</option>
-                <option value="Ocienia">Ocienia</option>
-                <option value="Antactic">Antactic</option>
-            </select>
+            <div className='col-sm-2'>
+                <select className='form-select' name='continent' value={continent} onChange={handleChange}>
+                    <option value="All">All Posts</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                    <option value="Ocienia">Oceania</option>
+                    <option value="Antactic">Antarctica</option>
+                </select>
+            </div>
+            
 
             <div className="container">
                 <div className="row communityBlogCard">
                     {showCards}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

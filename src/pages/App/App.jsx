@@ -35,13 +35,7 @@ function App() {
 
   return (
     <>
-    
-
-    <div className='container'>
-      <>
         <NavBar user={user} setUser={setUser} />
-
-      </>
       {
         user ? (
           <>
@@ -67,10 +61,7 @@ function App() {
             </Routes>
           )
       }
-      <Footer />
-    </div>
-    
-    
+      { /*<Footer />  */}
     </>
   )
 }

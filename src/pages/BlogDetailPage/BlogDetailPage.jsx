@@ -5,6 +5,8 @@ import CommentForm from '../../components/CommentForm';
 import CommentsList from '../../components/CommentsList'; 
 import * as blogsAPI from '../../utilities/blogs-api';
 import './BlogDetailPage.css';
+import * as Icon from 'react-bootstrap-icons';
+
 
 function BlogDetailPage() {
   const [blog, setBlog] = useState(null);
@@ -63,22 +65,45 @@ async function updateComment(id, updatedData) {
 
   
   if (!blog) { 
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   return (
-    <div className="container">
-      <div className="text-center">
-        <h1>{blog.title}</h1>
-        <p>{blog.country}</p>
-      </div>
-      <div className="row">
-        <div className="col-md-6">
-          <img src={blog.preview} alt="blog picture" className="img-fluid mb-3" style={{ maxWidth: '100%' }} />
+    <div className="container px-5">
+      <div className="row justify-content-end">
+        
+        <div className='col-sm-2'>
+          <Icon.Share className='mx-3 my-2'/>
+          <Icon.Bookmark />
         </div>
-        <div className="col-md-6">
+      </div>
+
+      <div className="container">
+        <div className="blogTitle col">
+          {blog.title}
+          <div className="d-flex justify-content-center">
+            <div className='col-md-3 my-2' style={{borderTop: "1px solid #d3c1ae"}}></div>
+          </div>
+        </div> 
+
+        <div className='d-flex justify-content-center align-items-center'>
+          <div className=''><img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" className="rounded-circle" height="40px" width="40px" alt="avatar" /></div>
+          <div className='align-items-center mx-4 userNameDiv'>
+            Username | 27 Mar 2024 in {blog.country}
+          </div>
+        </div>
+
+        <div className='my-3'>
+          <img src={blog.preview} alt="blog picture" className="img-fluid mb-3" style={{ maxWidth: '100%' }} />
           <div className="blog-text">{blog.text}</div>
         </div>
+        
+        
+        <div className="divideComment" style={{borderTop: "1px solid #d3c1ae"}}></div>
+
+
+          
+
       </div>
       <div className="row mt-4 justify-content-center">
         <div className="col-md-8">
