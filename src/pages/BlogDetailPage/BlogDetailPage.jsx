@@ -69,14 +69,14 @@ async function updateComment(id, updatedData) {
   }
 
   return (
-    <div className="container">
+    <div className="container blogDetailContainer">
       <div className="row my-2 justify-content-end">
 
         <ShareIcon />
       </div>
 
-      <div className="container">
-        <div className="blogTitle col">
+      <div className="container ">
+        <div className="blog-title col">
           {blog.title}
           <div className="d-flex justify-content-center">
             <div className='col-md-3 my-2' style={{borderTop: "1px solid #d3c1ae"}}></div>

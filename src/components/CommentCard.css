@@ -17,6 +17,7 @@
 
   .comment-actions {
     text-align: right;
+    display: none;
   }
   
   .comment-card:hover .comment-actions {
