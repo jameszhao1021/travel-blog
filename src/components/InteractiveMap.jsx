@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import PropTypes from 'prop-types';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-
+import 'mapbox-gl/dist/mapbox-gl.css';
 import './InteractiveMap.css';
 
 mapboxgl.accessToken = import.meta.env.VITE_APP_MAPBOXAPI;
@@ -21,7 +21,6 @@ const InteractiveMap = ({ selectedCountry }) => {
       style: 'mapbox://styles/mapbox/streets-v11', // Map style URL
       center: [0, 20], // starting position [lng, lat]
       zoom: 1.2, // starting zoom
-      projection: 'globe'
     });
 
     map.current.addControl(new mapboxgl.NavigationControl());
@@ -84,7 +83,7 @@ const InteractiveMap = ({ selectedCountry }) => {
         const [lat, lng] = selectedCountry.latlng;
         const marker = new mapboxgl.Marker({
         color: 'red',
-        draggable: true
+        draggable: false,
       })
         .setLngLat([lng, lat])
         .addTo(map.current);
