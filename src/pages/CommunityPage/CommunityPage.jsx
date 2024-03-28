@@ -44,7 +44,7 @@ function CommunityPage() {
                     <option value="North America">North America</option>
                     <option value="South America">South America</option>
                     <option value="Ocienia">Oceania</option>
-                    <option value="Antactic">Antarctica</option>
+                    <option value="Antarctic">Antarctic</option>
                 </select>
             </div>
             
