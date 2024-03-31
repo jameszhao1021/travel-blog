@@ -182,3 +182,13 @@ button[type="submit"], .switchButton, .switchText {
   font-size: 1.1rem;
   letter-spacing: 0.1rem;
 }
+
+.outerContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+}

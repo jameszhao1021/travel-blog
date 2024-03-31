@@ -27,12 +27,12 @@ function GalleryPage({ user, uploadImage }) {
     ))
     return (
         <>
-        <div className="container">
+        <div className='container outerContainer' style={{minHeight: '100vh'}} >
         <div className="pageTitle">Photo Gallery</div>
             <div className="pageDescription">Every picture tells a story. Share your favourite discoveries</div>
             <GalleryCarousel />
 
-            <div className="container">
+            {/* <div className="container"> */}
                 <div className="row">
 
                 <div>
@@ -46,10 +46,11 @@ function GalleryPage({ user, uploadImage }) {
                 </div>
                 </div>
                 
-            </div> 
-
+            {/* </div>  */}
+            <div className="main-content" >
             <div className="row">
                     {galleryCards}
+                </div>
                 </div>
                 <Footer />
         </div>

@@ -102,9 +102,9 @@ function MyBlogPage({ user, uploadImage }) {
 );
 
     return (
-        <div className="container">
+        <div className='container outerContainer' style={{minHeight: '100vh'}}>
             <div className="pageTitle">My Blog</div>
-            <div className="container">
+            {/* <div className="container"> */}
                 <div className="row align-items-center">
                     <div className="col-lg-4 profile">
                         {profile.picture ? (
@@ -121,8 +121,8 @@ function MyBlogPage({ user, uploadImage }) {
                         <InteractiveMap markedCountries={markedCountries} />
                     </div>
                 </div>
-            </div>
-           <div className="container">
+            {/* </div> */}
+           {/* <div className="container"> */}
             <div className="d-flex justify-content-between myBlogButtonDiv">
                 <div className="">
                     <select name="view" value={view} onChange={handleChange}>
@@ -136,13 +136,14 @@ function MyBlogPage({ user, uploadImage }) {
                     <BlogFormModal newBlog={newBlog} setNewBlog={setNewBlog} uploadImage={uploadImage} blogs={blogs} setBlogs={setBlogs} showFormModal={showFormModal} toggleFormModal={toggleFormModal} editBlog={editBlog} setEditBlog={setEditBlog} selectedCountry={selectedCountry}setSelectedCountry={setSelectedCountry} />
                 </div>
             </div>
-            <div className="container myBlogPostDiv" >
-                <div className="row myBlogCard">
+            <div className="main-content myBlogPostDiv" >
+                <div className="row myBlogCard" >
                     {showCards}
                 </div>
-                <Footer />
+                
             </div>
-            </div>
+            {/* </div> */}
+            <Footer />
         </div>
     );
 };

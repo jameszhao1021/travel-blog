@@ -6,7 +6,7 @@ import CommentsList from '../../components/CommentsList';
 import * as blogsAPI from '../../utilities/blogs-api';
 import './BlogDetailPage.css';
 import ShareIcon from '../../components/ShareIcon';
-
+import Footer from '../../components/Footer';
 
 function BlogDetailPage(user) {
   const [blog, setBlog] = useState(null);
@@ -79,7 +79,7 @@ async function updateComment(id, updatedData) {
 
 
   return (
-    <div className="container blogDetailContainer">
+    <div className='container blogDetailContainer outerContainer' style={{minHeight: '100vh'}}>
       <div className="row my-2 justify-content-end">
 
         <ShareIcon />
@@ -112,11 +112,12 @@ async function updateComment(id, updatedData) {
               <CommentForm addComment={addComment} editingComment={editingComment} updateComment={updateComment} />
           </div>
 
-          <div className="">
+          <div className="main-content">
             <CommentsList comments={ comments } deleteComment={ deleteComment } startEditComment= { startEditComment }/>
           </div>
+          <Footer />
       </div>
-
+     
     </div>
   );
 }

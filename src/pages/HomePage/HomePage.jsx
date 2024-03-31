@@ -11,7 +11,7 @@ function HomePage(){
     };
 
     return(
-        <div className="homeContainer">
+        <div className="homeContainer outerContainer">
             <div className="home-page">
                 <div className="pageTitle">Travel WikkiMedia</div>
                 {/* <div className="home-page-pic">
@@ -20,8 +20,8 @@ function HomePage(){
                     <img src="/homepage-pic4.jpg" alt="travel picture 4" />
                 </div> */}
             </div>
-
-            <div className="homeMainImage">
+           <div className="main-content">
+            <div className="homeMainImage ">
                 <div className="homeMainText">
                     <span>Explore the globe with Travel WikkiMedia, your gateway to a worldwide network of adventurers.</span>
                     <span>Uncover and share journey tales, and connect with fellow travelers. With us, every voyage becomes a shared story.</span>
@@ -31,6 +31,7 @@ function HomePage(){
                         <button type="button" className="btn btn-info button-custom-home" onClick={navigateToCommunity}>Start Your Journey</button>
                     </div>
                 </div>         
+            </div>
             </div>
             <Footer />
         </div>

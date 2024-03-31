@@ -40,30 +40,30 @@ function CommunityPage() {
 );
 
     return (
-        <div className='container'>
-            <div className="pageTitle">Explore Community</div>
-            <div className="pageDescription">Discover the wonders of the world | Adventure awaits just around the corner</div>
-            <div className='col-sm-2'>
-                <select className='form-select' name='continent' value={continent} onChange={handleChange}>
-                    <option value="All">All Posts</option>
-                    <option value="Africa">Africa</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Europe">Europe</option>
-                    <option value="North America">North America</option>
-                    <option value="South America">South America</option>
-                    <option value="Ocienia">Oceania</option>
-                    <option value="Antarctic">Antarctic</option>
-                </select>
+        <div className='container communityContainer' style={{minHeight: '100vh'}}>
+        <div className="pageTitle">Explore Community</div>
+        <div className="pageDescription">Discover the wonders of the world | Adventure awaits just around the corner</div>
+        <div className='col-sm-2'>
+            <select className='form-select' name='continent' value={continent} onChange={handleChange}>
+                <option value="All">All Posts</option>
+                <option value="Africa">Africa</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                <option value="Ocienia">Oceania</option>
+                <option value="Antarctic">Antarctic</option>
+            </select>
+        </div>
+
+        <div className="main-content">
+            <div className="row communityBlogCard">
+                {showCards}
             </div>
             
-
-            <div className="container">
-                <div className="row communityBlogCard">
-                    {showCards}
-                    <Footer />
-                </div>
-            </div>
         </div>
+        <Footer />
+    </div>
     )
 }
 
