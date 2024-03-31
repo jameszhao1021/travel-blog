@@ -31,7 +31,7 @@ function SearchPage() {
 
   return (
     <div>
-      <h1>Search Results:</h1>
+      <h1 class="blog-text">Search Results:</h1>
       <ul className="search-result-list">
         { searchResultCards }
       </ul>
