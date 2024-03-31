@@ -1,0 +1,82 @@
+.blogCard {
+    height: 500px;
+    border: 1px solid rgb(219, 219, 219);
+    padding: 0.6rem;
+    position: relative;
+}
+
+.blogCard:hover {
+    /* border: 1px solid #D3C1AE; */
+    box-shadow: 0 0 10px rgba(17, 15, 15, 0.1);
+}
+
+.blogCard a {
+    text-decoration: none;
+    color: grey;
+}
+
+/* .blogCard a:hover {
+    text-decoration: none;
+    color: #D3C1AE;
+} */
+
+.blogCardBg {
+    background-color: #F6F2EF;
+    height: 100%;
+    padding: 0.8rem;
+}
+
+
+.blogCardImage {
+    height: 280px;
+    width: 310px;
+}
+
+.blogTitle {
+    padding: 1rem 0;
+    font-size: 1.5rem !important;
+    font-weight: 200 !important;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.blogBottomText {
+    border-top: 1px solid #fff;
+    padding-top: 1rem;
+    margin-top: auto;
+    letter-spacing: 0.1rem;
+    color: #b79979;
+    font-size: 1.2rem;
+    
+}
+
+.blogCard .buttons {
+    position: absolute;
+    top: 20px;
+    /* Adjust as needed */
+    right: 25px;
+    /* Adjust as needed */
+    opacity: 0;
+    /* Initially hide the buttons */
+    transition: opacity 0.3s ease;
+    /* Add transition for opacity */
+    display: flex;
+    justify-content: space-around;
+    width: 45%;
+}
+
+.blogCard:hover .buttons {
+    opacity: 1;
+}
+
+.button {
+    background-color: #fff;
+    color: #000;
+    width: 50%;
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+.communityBlogCard .blogCard .buttons {
+    display: none;
+}

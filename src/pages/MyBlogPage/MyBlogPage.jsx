@@ -82,23 +82,24 @@ function MyBlogPage({ user, uploadImage }) {
     return (
         <div className="container">
             <div className="pageTitle">My Blog</div>
-
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-4 profile">
-                        <div ><img src={profile.picture} className="profileImage" alt="Profile" style={{ maxWidth: '250px', maxHeight: '250px' }} /></div>
+                        {profile.picture ? (
+                            <img src={profile.picture} className="profileImage" alt="Profile" style={{ maxWidth: '250px', maxHeight: '250px' }} />
+                        ) : (
+                            <div className="loading-spinner">Loading...</div>
+                        )}
                         <div>{user.name}</div>
                         <div className="bio">{profile.bio}</div>
                         <button className="btn button-custom" onClick={toggleProfileModal}>Edit profile</button>
                         <ProfileFormModal profile={profile} setProfile={setProfile} uploadImage={uploadImage} showProfileModal={showProfileModal} toggleProfileModal={toggleProfileModal} editProfile={editProfile} setEditProfile={setEditProfile} user={user} newProfile={newProfile} setNewProfile={setNewProfile} />
                     </div>
-
                     <div className="col-lg-8">
                         <InteractiveMap markedCountries={markedCountries} />
                     </div>
                 </div>
             </div>
-
            <div className="container">
             <div className="d-flex justify-content-between myBlogButtonDiv">
                 <div className="">
@@ -113,15 +114,12 @@ function MyBlogPage({ user, uploadImage }) {
                     <BlogFormModal newBlog={newBlog} setNewBlog={setNewBlog} uploadImage={uploadImage} blogs={blogs} setBlogs={setBlogs} showFormModal={showFormModal} toggleFormModal={toggleFormModal} editBlog={editBlog} setEditBlog={setEditBlog} selectedCountry={selectedCountry}setSelectedCountry={setSelectedCountry} />
                 </div>
             </div>
-
-
             <div className="container myBlogPostDiv">
                 <div className="row">
                     {blogCards}
                 </div>
             </div>
             </div>
-
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SigninModal from '../components/SigninModal'
 import * as userService from '../utilities/users-service';
 import './NavBar.css';
@@ -10,7 +10,18 @@ import './NavBar.css';
 
 const NavBar = ({user, setUser}) => {
     
-const [showModal, setShowModal] = useState(false)
+const [showModal, setShowModal] = useState(false);
+const [searchTerm, setSearchTerm] = useState('');
+const navigate = useNavigate();
+
+const handleSearch = (e) => {
+  e.preventDefault();
+  // Redirect the user to the search page with the search term as a query parameter
+  navigate(`/search?searchTerm=${encodeURIComponent(searchTerm)}`);
+}
+
+
+
 function toggleModal(){
     setShowModal(prev=>!prev)
 }
@@ -42,8 +53,13 @@ function toggleModal(){
             }
           </Nav>
           <Nav className="nav-search-log">
-            <form className="d-flex" role="search">
-              <input className="form-control form-control-sm me-2" type="search" placeholder="Search the site.." aria-label="Search"/>
+            <form onSubmit= { handleSearch } className="d-flex" role="search">
+              <input 
+                className="form-control form-control-sm me-2" 
+                type="search" placeholder="Search the site.." 
+                value={ searchTerm }
+                onChange ={(e) => setSearchTerm(e.target.value)}
+                aria-label="Search"/>
               <button className="btn btn-sm btn-outline-success button-custom" type="submit">Search</button>
             </form>
           </Nav>

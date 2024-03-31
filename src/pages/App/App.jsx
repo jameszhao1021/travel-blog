@@ -13,6 +13,7 @@ import BlogDetailPage from '../BlogDetailPage/BlogDetailPage';
 import GalleryForm from '../../components/GalleryForm';
 import Footer from '../../components/Footer';
 import CommunityPage from '../CommunityPage/CommunityPage';
+import SearchPage from '../SearchPage/SearchPage';
 
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
               <Route path='/myblog' element={<MyBlogPage uploadImage={uploadImage} user={user} blogs={blogs} setBlogs={setBlogs} />} />
               <Route path='/myblog/new' element={<BlogForm uploadImage={uploadImage} setBlogs={setBlogs} />} />
               <Route path='/blog/:blogId' element={<BlogDetailPage />} /> 
-              
+              <Route path="/search" element={<SearchPage />} />
             </Routes>
           </>
         ) :
@@ -58,6 +59,7 @@ function App() {
               <Route path='/community' element={<CommunityPage />} />
               <Route path='/gallery' element={<GalleryPage />} />
               <Route path='/blog/:blogId' element={<BlogDetailPage />} /> 
+              <Route path="/search" element={<SearchPage />} />
             </Routes>
           )
       }
