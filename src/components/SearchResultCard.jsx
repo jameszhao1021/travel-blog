@@ -6,7 +6,7 @@ function SearchResultCard({ result }) {
     // console.log('result is:', result);
     return (
         <>
-            <div className="col-4 my-2 py-3">
+            <div className="col-xl-4 my-2 py-3">
                 <div className='blogCard'>
                     <div className='blogCardBg'>
                         <Link to={`/blog/${result._id}`}>

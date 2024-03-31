@@ -31,6 +31,7 @@ const BlogFormModal = ({
       // setLoading(false);
     } else {
       setNewBlog({
+        view: 'Public Posts',
         country: "",
         preview: "",
         title: "",
@@ -63,6 +64,7 @@ const BlogFormModal = ({
       // Create a copy of newBlog to pass to addBlog and setBlogs
       await addBlog(submittedBlog); // Pass the copy to addBlog
       setNewBlog({
+        view: 'Public Posts',
         country: "",
         preview: "",
         title: "",

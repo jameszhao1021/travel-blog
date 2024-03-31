@@ -1,12 +1,16 @@
 import sendRequest from './send-request';
 const BASE_URL = '/api/blogs';
 
-export function getMyBlogs() {
-    return sendRequest(BASE_URL);
+// export function getMyBlogs() {
+//     return sendRequest(BASE_URL);
+// }
+
+export function getMyBlogs(view) {
+  return sendRequest(`${ BASE_URL }/${ view }`);
 }
 
 export function getSelectedBlogs(continent) {
-  return sendRequest(`${ BASE_URL }/${ continent }`);
+  return sendRequest(`${ BASE_URL }/selected/${ continent }`);
 }
 
 export function createBlog(blogForm) {

@@ -13,7 +13,7 @@ function BlogCard({ blog, index, handleDelete, toggleFormModal, setEditBlog }) {
 
     return (
         <>
-            <div className="col-4 my-2 py-3">
+            <div className="col-xl-4 col-lg-6 my-2 py-3">
                 <div className='blogCard'>
                     <div className='blogCardBg'>
                         <Link to={`/blog/${blog._id}`}>

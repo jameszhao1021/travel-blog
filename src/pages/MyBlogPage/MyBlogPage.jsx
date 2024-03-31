@@ -13,6 +13,7 @@ import '../MyBlogPage/myBlogPage.css'
 
 function MyBlogPage({ user, uploadImage }) {
     const [newBlog, setNewBlog] = useState({
+        view: 'Public Posts',
         country: '',
         preview: '',
         title: '',
@@ -23,8 +24,11 @@ function MyBlogPage({ user, uploadImage }) {
     const [showFormModal, setShowFormModal] = useState(false);
     const [showProfileModal, setShowProfileModal] = useState(false);
     const [editBlog, setEditBlog] = useState(null)
-
     const [selectedCountry, setSelectedCountry] = useState(null);
+    const [view, setView] = useState('All Posts')
+    function handleChange(e) {
+        setView(e.target.value)
+    }
 
     const [profile, setProfile] = useState({
         // picture: '../../../public/images/profile.png',
@@ -43,10 +47,10 @@ function MyBlogPage({ user, uploadImage }) {
     }
 
     useEffect(() => {
-        blogsAPI.getMyBlogs().then((blogs) => {
+        blogsAPI.getMyBlogs(view).then((blogs) => {
             setBlogs(blogs);
         });
-    }, []);
+    }, [view]);
 
     const markedCountries = useMemo(() => blogs.map(blog => blog.country), [blogs])
 
@@ -103,10 +107,10 @@ function MyBlogPage({ user, uploadImage }) {
            <div className="container">
             <div className="d-flex justify-content-between myBlogButtonDiv">
                 <div className="">
-                    <select>
+                    <select name="view" value={view} onChange={handleChange}>
                         <option value="All Posts">All Posts</option>
-                        <option value="Public Posts">Public Posts</option>
-                        <option value="Private Posts">Private Posts</option>
+                        <option value="Public Post">Public Posts</option>
+                        <option value="Private Post">Private Posts</option>
                     </select>
                 </div>
                 <div className="">

@@ -30,6 +30,10 @@ function BlogForm({
         style={{ maxHeight: "750px", overflowY: "hidden" }}
         ref={formRef}
       >
+        <select className="col-lg-3" name="view" value={newBlog.view} onChange={handleChange}>
+          <option value="Public Post">Public Post</option>
+          <option value="Private Post">Private Post</option>
+        </select>
         <div className="col-lg-12 d-flex align-items-center gap-3">
           <CountrySelectForm
             handleChange={handleChange}

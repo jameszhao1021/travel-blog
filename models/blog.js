@@ -17,6 +17,10 @@ const commentSchema = new Schema({
     });
 
 const blogSchema = new Schema({
+    view:{
+        type: String, 
+        required: true,
+    },
     continent:{
         type: String, 
     },

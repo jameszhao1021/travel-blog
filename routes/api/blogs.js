@@ -5,10 +5,10 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // GET /api/blogs/:id
 
+router.get('/selected/:continent', blogsController.publicIndex);
+router.get('/:view', ensureLoggedIn, blogsController.index);
 router.delete('/:id', ensureLoggedIn, blogsController.delete);
-router.get('/:continent', blogsController.publicIndex);
 router.get('/detail/:id', blogsController.show);
-router.get('/', ensureLoggedIn, blogsController.index);
 router.post('/', ensureLoggedIn, blogsController.create);
 router.put('/:id', ensureLoggedIn, blogsController.update);
 
