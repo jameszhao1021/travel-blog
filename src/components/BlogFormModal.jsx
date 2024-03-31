@@ -20,7 +20,7 @@ const BlogFormModal = ({
 }) => {
   const [preview, setPreview] = useState("");
   const formRef = useRef(null);
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
   // const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -52,6 +52,7 @@ const BlogFormModal = ({
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setIsSubmitting(true);
     if (preview) {
       const data = await uploadImage(preview);
       console.log("data about picture uploaded: " + data);
@@ -81,6 +82,7 @@ const BlogFormModal = ({
     }
     toggleFormModal();
     resetAfterClose();
+    setIsSubmitting(false);
   }
 
   return (
@@ -104,8 +106,8 @@ const BlogFormModal = ({
         />
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleSubmit}>
-          Submit
+      <Button variant="secondary" onClick={handleSubmit} disabled={isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Submit"}
         </Button>
         <Button
           variant="secondary"

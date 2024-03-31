@@ -80,3 +80,6 @@
 .communityBlogCard .blogCard .buttons {
     display: none;
 }
+.myBlogCard .blogCard .buttons {
+    display: block;
+}

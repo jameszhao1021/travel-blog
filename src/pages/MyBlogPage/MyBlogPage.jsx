@@ -28,6 +28,7 @@ function MyBlogPage({ user, uploadImage }) {
     const [editBlog, setEditBlog] = useState(null)
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [view, setView] = useState('All Posts')
+
     function handleChange(e) {
         setView(e.target.value)
     }
@@ -136,7 +137,7 @@ function MyBlogPage({ user, uploadImage }) {
                 </div>
             </div>
             <div className="container myBlogPostDiv" >
-                <div className="row">
+                <div className="row myBlogCard">
                     {showCards}
                 </div>
                 <Footer />
