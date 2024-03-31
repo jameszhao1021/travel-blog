@@ -30,9 +30,9 @@ function SearchPage() {
   const searchResultCards = results.map((r, index) => <SearchResultCard key={index} result={r} />)
 
   return (
-    <div>
+    <div className='row justify-content-center'>
       <h1 class="blog-text">Search Results:</h1>
-      <ul className="search-result-list">
+      <ul className="search-result-list d-flex flex-wrap col-lg-8 ">
         { searchResultCards }
       </ul>
     </div>
