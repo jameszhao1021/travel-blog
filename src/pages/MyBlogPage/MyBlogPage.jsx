@@ -10,6 +10,7 @@ import * as profilesAPI from '../../utilities/profiles-api'
 import InteractiveMap from "../../components/InteractiveMap";
 import '../../index.css';
 import '../MyBlogPage/myBlogPage.css'
+import Footer from "../../components/Footer";
 
 function MyBlogPage({ user, uploadImage }) {
     const [newBlog, setNewBlog] = useState({
@@ -20,6 +21,7 @@ function MyBlogPage({ user, uploadImage }) {
         text: ''
     })
 
+    const [loading, setLoading] = useState(true); 
     const [blogs, setBlogs] = useState([]);
     const [showFormModal, setShowFormModal] = useState(false);
     const [showProfileModal, setShowProfileModal] = useState(false);
@@ -49,6 +51,8 @@ function MyBlogPage({ user, uploadImage }) {
     useEffect(() => {
         blogsAPI.getMyBlogs(view).then((blogs) => {
             setBlogs(blogs);
+        }) .finally(() => {
+            setLoading(false); // Set loading to false when fetching completes
         });
     }, [view]);
 
@@ -83,6 +87,19 @@ function MyBlogPage({ user, uploadImage }) {
     const blogCards = blogs.map((blog, index) => (
         <BlogCard newBlog={newBlog} setNewBlog={setNewBlog} key={index} blog={blog} setBlogs={setBlogs} setEditBlog={setEditBlog} toggleFormModal={toggleFormModal} handleDelete={handleDelete} showFormModal={showFormModal} />
     ))
+
+    const showCards = loading ? ( // Display "Loading" if data is still loading
+    <h2>Loading...</h2>
+) : (
+    blogs.length ? (
+        <div className="row communityBlogCard">
+            {blogCards}
+        </div>
+    ) : (
+        <h2>No blog yet</h2>
+    )
+);
+
     return (
         <div className="container">
             <div className="pageTitle">My Blog</div>
@@ -113,15 +130,16 @@ function MyBlogPage({ user, uploadImage }) {
                         <option value="Private Post">Private Posts</option>
                     </select>
                 </div>
-                <div className="">
+                <div>
                     <button className="btn button-custom" onClick={toggleFormModal}>Create Blog</button>
                     <BlogFormModal newBlog={newBlog} setNewBlog={setNewBlog} uploadImage={uploadImage} blogs={blogs} setBlogs={setBlogs} showFormModal={showFormModal} toggleFormModal={toggleFormModal} editBlog={editBlog} setEditBlog={setEditBlog} selectedCountry={selectedCountry}setSelectedCountry={setSelectedCountry} />
                 </div>
             </div>
-            <div className="container myBlogPostDiv">
+            <div className="container myBlogPostDiv" >
                 <div className="row">
-                    {blogCards}
+                    {showCards}
                 </div>
+                <Footer />
             </div>
             </div>
         </div>

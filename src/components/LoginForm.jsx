@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as usersService from '../utilities/users-service';
 
-export default function LoginForm({ setUser, toggleModal }) {
+export default function LoginForm({ setUser, toggleModal, toggleShowSignup }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -12,19 +12,20 @@ export default function LoginForm({ setUser, toggleModal }) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
     setError('');
   }
-
   async function handleSubmit(evt) {
     // Prevent form from being submitted to the server
     evt.preventDefault();
     try {
-      // The promise returned by the signUp service method 
-      // will resolve to the user object included in the
-      // payload of the JSON Web Token (JWT)
+      // Attempt to log in with provided credentials
       const user = await usersService.login(credentials);
+      // If login is successful, set the user state
       setUser(user);
-    } catch(err) {
-      console.log(err)
-      setError('Log In Failed - Try Again');
+      // Close the modal
+      toggleModal();
+    } catch (err) {
+      // If an error occurs during login, display an error message
+      console.error(err);
+      setError('Invalid email or password. Please try again.');
     }
   }
 
@@ -36,10 +37,17 @@ export default function LoginForm({ setUser, toggleModal }) {
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
           <label>Password</label>
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit" onClick={toggleModal}>LOG IN</button>
+          <button type="submit" >Log In</button>
+          <p className='switchText'>Do not have account?</p>
+          <button className='switchButton' onClick={toggleShowSignup} >
+            Sign up a new account
+          </button>
+         
         </form>
       </div>
-      <p className="error-message">&nbsp;{error}</p>
+      {error && <p className="error-message">&nbsp;{error}</p>}
+
     </div>
   );
 }
+

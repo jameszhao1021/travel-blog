@@ -1,19 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; 
+import Footer from "../../components/Footer";
 import './HomePage.css';
 import '../../index.css';
 
 function HomePage(){
-
     const navigate = useNavigate();
     const navigateToCommunity = () => {
         navigate('/community'); // Use navigate method to change the route
     };
 
-
-
     return(
-        <>
+        <div className="homeContainer">
             <div className="home-page">
                 <div className="pageTitle">Travel WikkiMedia</div>
                 {/* <div className="home-page-pic">
@@ -32,9 +30,10 @@ function HomePage(){
                     <div  className="buttonContainer">
                         <button type="button" className="btn btn-info button-custom-home" onClick={navigateToCommunity}>Start Your Journey</button>
                     </div>
-                </div>
+                </div>         
             </div>
-        </>
+            <Footer />
+        </div>
     )
 }
 

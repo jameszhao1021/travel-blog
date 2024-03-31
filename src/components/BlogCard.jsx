@@ -29,7 +29,7 @@ function BlogCard({ blog, index, handleDelete, toggleFormModal, setEditBlog }) {
                             <BlogDeleteModal showDeleteModal={showDeleteModal} toggleDeleteModal={toggleDeleteModal} handleDelete={handleDelete} blog={blog} />
                         </div>
                     </div>
-                </div>
+                </div>  
             </div>
         </>
     )

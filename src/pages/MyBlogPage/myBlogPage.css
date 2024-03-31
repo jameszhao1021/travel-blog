@@ -6,11 +6,13 @@
 
 
 .myBlogButtonDiv {
-    border-bottom: 1px solid #E2D9D1;
-    margin-top: 5rem;
+    
+    margin-top: 2rem;
     padding: 10px;
 }
-
+.myBlogPostDiv{
+    margin-top: -1rem;
+}
 .button-custom {
     border-color: #f2d5b6 !important;
     color: grey !important;

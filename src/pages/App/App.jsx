@@ -1,7 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import './App.css'
-
 import MyBlogPage from '../MyBlogPage/MyBlogPage';
 import HomePage from '../HomePage/HomePage';
 import GalleryPage from '../GalleryPage/GalleryPage'
@@ -11,13 +9,11 @@ import { getUser } from '../../utilities/users-service';
 import BlogForm from '../../components/BlogForm';
 import BlogDetailPage from '../BlogDetailPage/BlogDetailPage';
 import GalleryForm from '../../components/GalleryForm';
-import Footer from '../../components/Footer';
 import CommunityPage from '../CommunityPage/CommunityPage';
 import SearchPage from '../SearchPage/SearchPage';
-
+import './App.css'
 
 function App() {
-
   const [user, setUser] = useState(getUser());
   const [blogs, setBlogs] = useState([]);
   const [galleries, setGalleries] = useState([]);
@@ -33,14 +29,12 @@ function App() {
     		}).then(res => res.json())
       .catch(err => console.log(err))
 	};
-
+    
   return (
     <>
-        <NavBar user={user} setUser={setUser} />
+        <NavBar user={user} setUser={setUser} />  
       {
         user ? (
-          <>
-
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/community' element={<CommunityPage />} />
@@ -51,7 +45,6 @@ function App() {
               <Route path='/blog/:blogId' element={<BlogDetailPage />} /> 
               <Route path="/search" element={<SearchPage />} />
             </Routes>
-          </>
         ) :
           (
             <Routes>
@@ -63,7 +56,6 @@ function App() {
             </Routes>
           )
       }
-      { /*<Footer />  */}
     </>
   )
 }

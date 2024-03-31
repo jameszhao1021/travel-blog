@@ -89,6 +89,9 @@ const BlogFormModal = ({
       show={showFormModal}
       style={{ maxHeight: "100vh", overflowY: "auto" }}
     >
+      <Modal.Header>
+        <Modal.Title>Blog Form</Modal.Title>
+      </Modal.Header>
       <Modal.Body style={{ maxHeight: "800px", overflowY: "hidden" }}>
         <BlogForm
           editBlog={editBlog}

@@ -8,7 +8,7 @@ import * as galleriesAPI from '../../utilities/galleries-api';
 import '../../index.css';
 import './GalleryPage.css';
 import GalleryCarousel from "../../components/GalleryCarousel";
-
+import Footer from "../../components/Footer";
 
 function GalleryPage({ user, uploadImage }) {
     const [galleries, setGalleries] = useState([]);
@@ -51,6 +51,7 @@ function GalleryPage({ user, uploadImage }) {
             <div className="row">
                     {galleryCards}
                 </div>
+                <Footer />
         </div>
         </>
     );

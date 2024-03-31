@@ -3,9 +3,9 @@ import React from "react";
 import '../../index.css';
 import BlogCard from "../../components/BlogCard";
 import * as blogsAPI from '../../utilities/blogs-api';
-
+import Footer from '../../components/Footer';
 function CommunityPage() {
-
+    const [loading, setLoading] = useState(true); 
     const [blogs, setBlogs] = useState([]);
     const [continent, setContinent] = useState('All')
     function handleChange(e) {
@@ -13,23 +13,31 @@ function CommunityPage() {
     }
 
     useEffect(() => {
-        blogsAPI.getSelectedBlogs(continent).then((blogs) => {
-            setBlogs(blogs);
-        });
+        setLoading(true); // Set loading to true when fetching starts
+        blogsAPI.getSelectedBlogs(continent)
+            .then((blogs) => {
+                setBlogs(blogs);
+            })
+            .finally(() => {
+                setLoading(false); // Set loading to false when fetching completes
+            });
     }, [continent]);
-
 
     const blogCards = blogs.map((blog, index) => (
         <BlogCard key={index} blog={blog} />
     ))
 
-    const showCards = blogs.length ? (
+    const showCards = loading ? ( // Display "Loading" if data is still loading
+    <h2>Loading...</h2>
+) : (
+    blogs.length ? (
         <div className="row communityBlogCard">
             {blogCards}
         </div>
     ) : (
         <h2>No blog yet</h2>
-    );
+    )
+);
 
     return (
         <div className='container'>
@@ -52,6 +60,7 @@ function CommunityPage() {
             <div className="container">
                 <div className="row communityBlogCard">
                     {showCards}
+                    <Footer />
                 </div>
             </div>
         </div>
