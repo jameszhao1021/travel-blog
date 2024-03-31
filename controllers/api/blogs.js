@@ -44,7 +44,6 @@ async function create(req, res) {
 
 async function deleteBlog(req, res) {
   try {
-    console.log(req.params.id)
     await Blog.deleteOne({ _id: req.params.id, user: req.user._id });
     res.json(true);
   } catch (err) {
@@ -63,7 +62,6 @@ async function update(req, res) {
     }
     const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, { ...req.body, continent }, { new: true })
     res.json(updatedBlog)
-    console.log('see updated one: ' + updatedBlog)
   } catch (err) {
     console.log(err)
     res.status(400).json(err);
@@ -74,7 +72,6 @@ async function update(req, res) {
 async function show(req, res) {
   try {
     const blog = await Blog.findOne({ _id: req.params.id });
-    console.log('see blog: '+ blog)
     if (!blog) {
       return res.status(404).json({ error: 'Blog not found' });
     }
