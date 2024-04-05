@@ -5,14 +5,10 @@ import Button from 'react-bootstrap/Button';
 import SignUpForm from './SignUpForm';
 import LoginForm from './LoginForm';
 
-const SigninModal = ({ user, setUser, toggleModal, showModal }) => {
+const SigninModal = ({ setUser, toggleModal, showModal }) => {
     const [showSignup, setShowSignup] = useState(true);
     function toggleShowSignup() {
         setShowSignup(prev => !prev);
-    }
-    const handleLogout = () => {
-        userService.logOut();
-        setUser = nill;
     }
 
     return (

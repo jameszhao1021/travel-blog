@@ -3,7 +3,6 @@ const Blog = require('../../models/blog');
 async function blogSearch(req, res) {
     try {
       const searchTerm = req.query.searchTerm;
-       console.log('searchTerm', req.query.searchTerm);
       const results = await Blog.find({
         $or: [
           { title: new RegExp(searchTerm, 'i') },

@@ -1,17 +1,6 @@
 const Blog = require('../../models/blog')
 const countryContinentMapping = require('../../models/countryContinentMapping');
 
-// async function index(req, res) {
-//   try {
-//     const blogs = await Blog.find({ user: req.user._id }).populate('user', 'name');
-//     console.log(blogs);
-//     res.json(blogs);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// }
-
-
 async function index(req, res) {
   console.log(req.params.view)
   try {
@@ -46,7 +35,6 @@ async function publicIndex(req, res) {
 
 async function create(req, res) {
   try {
-    console.log('see what will be added: ', req.body)
     const blog = await Blog.create({
       view: req.body.view,
       country: req.body.country,

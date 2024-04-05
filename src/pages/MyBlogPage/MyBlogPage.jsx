@@ -65,9 +65,6 @@ function MyBlogPage({ user, uploadImage }) {
         });
     }, []);
 
-    useEffect((() => {
-        console.log('see current profile: ' + profile.bio)
-    }))
     async function handleDelete(blogId) {
         try {
             // Call the deleteBlog function from the API, passing the blogId
@@ -78,8 +75,6 @@ function MyBlogPage({ user, uploadImage }) {
 
             // Update the state with the new list of blogs
             setBlogs(updatedBlogs);
-
-            console.log("Blog deleted successfully");
         } catch (error) {
             console.error("Error deleting blog:", error);
         }

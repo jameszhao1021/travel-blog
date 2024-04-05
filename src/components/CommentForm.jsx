@@ -4,37 +4,25 @@ import '../index.css'
 function CommentForm({ addComment, editingComment, updateComment  }) {
 
 const [commentText, setCommentText] = useState('');
-
-
   
-  useEffect(() => {
-    if (editingComment) {
-      setCommentText(editingComment.text);
-    //  console.log(editingComment);
-    }
-  }, [editingComment]);
+useEffect(() => {
+  if (editingComment) {
+    setCommentText(editingComment.text);
+  //  console.log(editingComment);
+  }
+}, [editingComment]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+const handleSubmit = (event) => {
+  event.preventDefault();
+  
+  if (editingComment) {
+    updateComment(editingComment._id, {text: commentText });
     
-    if (editingComment) {
-      updateComment(editingComment._id, {text: commentText });
-     
-    } else {
-      addComment({ text: commentText });
-    }
-    setCommentText('');
-  };
-//  const [newComment, setNewComment] = useState('');
-//  console.log(newComment);
-
-
-//  const handleSubmit = (event) => {
-//     event.preventDefault();
-//     addComment({ text: newComment });
-//     // console.log('new Comment is:', newComment);
-//     setNewComment('');
-//  }
+  } else {
+    addComment({ text: commentText });
+  }
+  setCommentText('');
+};
 
  return (
   <form onSubmit={handleSubmit} className="d-flex justify-content-center">

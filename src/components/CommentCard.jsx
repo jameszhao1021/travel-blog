@@ -19,8 +19,6 @@ function CommentCard({ comment, deleteComment, startEditComment }) {
   const isCurrentUser = currentUser && user === currentUser._id;
   // console.log(isCurrentUser);
 
-  
-  
   return (
     <div className="d-flex justify-content-center">
       <div className="comment-card">

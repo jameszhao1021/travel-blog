@@ -41,8 +41,7 @@ export default function LoginForm({ setUser, toggleModal, toggleShowSignup }) {
           <p className='switchText'>Do not have account?</p>
           <button className='switchButton' onClick={toggleShowSignup} >
             Sign up a new account
-          </button>
-         
+          </button>      
         </form>
       </div>
       {error && <p className="error-message">&nbsp;{error}</p>}

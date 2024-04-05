@@ -24,7 +24,6 @@ const BlogFormModal = ({
   // const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    console.log(editBlog);
     if (editBlog) {
       setNewBlog({ ...editBlog });
 

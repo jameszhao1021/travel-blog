@@ -7,7 +7,6 @@ import SigninModal from '../components/SigninModal'
 import * as userService from '../utilities/users-service';
 import './NavBar.css';
 
-
 const NavBar = ({user, setUser}) => {
     
 const [showModal, setShowModal] = useState(false);
@@ -19,8 +18,6 @@ const handleSearch = (e) => {
   // Redirect the user to the search page with the search term as a query parameter
   navigate(`/search?searchTerm=${encodeURIComponent(searchTerm)}`);
 }
-
-
 
 function toggleModal(){
     setShowModal(prev=>!prev)

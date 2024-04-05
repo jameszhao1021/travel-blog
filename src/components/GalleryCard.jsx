@@ -21,7 +21,6 @@ function GalleryCard({ gallery, index, user }) {
         } else if (gallery.user) {
             setUserName(gallery.user);
         }
-        console.log(gallery.user);
     }, []);
 
 

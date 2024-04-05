@@ -1,10 +1,7 @@
 const Blog = require('../../models/blog');
 
-
-
-
   
-  async function addComment(req, res)  {
+async function addComment(req, res)  {
     // console.log(req.body);
     // console.log(req.params);
     try {
@@ -17,14 +14,14 @@ const Blog = require('../../models/blog');
       if (!blog) {
         return res.status(404).json({ message: 'Blog not found' });
       }
-  
-     const newComment = req.body;
+
+      const newComment = req.body;
 
       blog.comments.push(newComment);
       
       await blog.save();
     //   console.log(blog);
-     
+      
       res.status(201).json(newComment);
     } catch (error) {
       console.error('Error creating comment:', error);
@@ -84,10 +81,10 @@ async function updateComment(req,res) {
   }
 }
   
-  module.exports = {
-    addComment,
-    delete: deleteComment,
-    update: updateComment
-  }
+module.exports = {
+  addComment,
+  delete: deleteComment,
+  update: updateComment
+}
   
   
