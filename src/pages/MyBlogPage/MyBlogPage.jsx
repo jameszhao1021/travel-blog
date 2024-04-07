@@ -1,6 +1,4 @@
 import React, { useMemo } from "react";
-import CountrySelectForm from '../../components/CountrySelectForm'
-import BlogForm from "../../components/BlogForm";
 import BlogFormModal from "../../components/BlogFormModal";
 import ProfileFormModal from "../../components/ProfileFormModal";
 import { useState, useEffect } from "react";

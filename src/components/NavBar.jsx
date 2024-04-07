@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import SigninModal from '../components/SigninModal'
 import * as userService from '../utilities/users-service';
 import './NavBar.css';

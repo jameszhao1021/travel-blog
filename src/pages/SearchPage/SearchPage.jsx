@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import * as searchAPI from '../../utilities/search-api'; 
+import * as searchAPI from '../../utilities/search-api';
 import SearchResultCard from '../../components/SearchResultCard';
 
 function SearchPage() {
@@ -25,7 +25,7 @@ function SearchPage() {
     if (location.search) {
       fetchSearchResults();
     }
-  }, [location.search]); 
+  }, [location.search]);
 
   const searchResultCards = results.map((r, index) => <SearchResultCard key={index} result={r} />)
 
@@ -33,7 +33,7 @@ function SearchPage() {
     <div className='row justify-content-center'>
       <h1 class="blog-text">Search Results:</h1>
       <ul className="search-result-list d-flex flex-wrap col-lg-8 ">
-        { searchResultCards }
+        {searchResultCards}
       </ul>
     </div>
   );

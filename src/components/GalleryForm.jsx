@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CountrySelectForm from './CountrySelectForm'
 import * as galleriesAPI from '../utilities/galleries-api'
 
-function GalleryForm({ handleChange, uploadImage, formRef, preview, setPreview, newGallery, setNewGallery, selectedCountry, setSelectedCountry }) {
+function GalleryForm({ handleChange, formRef, setPreview, newGallery, setNewGallery, selectedCountry, setSelectedCountry }) {
 
     function handleChange(e) {
         if (e.target.name === 'preview') {

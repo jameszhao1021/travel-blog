@@ -12,7 +12,6 @@ function BlogCard({ blog, index, handleDelete, toggleFormModal, setEditBlog }) {
     }
 
     return (
-        <>
             <div className="col-xl-4 col-lg-6 my-2 py-3">
                 <div className='blogCard'>
                     <div className='blogCardBg'>
@@ -31,7 +30,6 @@ function BlogCard({ blog, index, handleDelete, toggleFormModal, setEditBlog }) {
                     </div>
                 </div>  
             </div>
-        </>
     )
 };
 export default BlogCard;

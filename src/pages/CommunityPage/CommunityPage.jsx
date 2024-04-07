@@ -4,8 +4,9 @@ import '../../index.css';
 import BlogCard from "../../components/BlogCard";
 import * as blogsAPI from '../../utilities/blogs-api';
 import Footer from '../../components/Footer';
+
 function CommunityPage() {
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
     const [blogs, setBlogs] = useState([]);
     const [continent, setContinent] = useState('All')
     function handleChange(e) {
@@ -28,42 +29,41 @@ function CommunityPage() {
     ))
 
     const showCards = loading ? ( // Display "Loading" if data is still loading
-    <h2>Loading...</h2>
-) : (
-    blogs.length ? (
-        <div className="row communityBlogCard">
-            {blogCards}
-        </div>
+        <h2>Loading...</h2>
     ) : (
-        <h2>No blog yet</h2>
-    )
-);
+        blogs.length ? (
+            <div className="row communityBlogCard">
+                {blogCards}
+            </div>
+        ) : (
+            <h2>No blog yet</h2>
+        )
+    );
 
     return (
-        <div className='container communityContainer' style={{minHeight: '100vh'}}>
-        <div className="pageTitle">Explore Community</div>
-        <div className="pageDescription">Discover the wonders of the world | Adventure awaits just around the corner</div>
-        <div className='col-sm-2'>
-            <select className='form-select' name='continent' value={continent} onChange={handleChange}>
-                <option value="All">All Posts</option>
-                <option value="Africa">Africa</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="North America">North America</option>
-                <option value="South America">South America</option>
-                <option value="Ocienia">Oceania</option>
-                <option value="Antarctic">Antarctic</option>
-            </select>
-        </div>
-
-        <div className="main-content">
-            <div className="row communityBlogCard">
-                {showCards}
+        <div className='container communityContainer' style={{ minHeight: '100vh' }}>
+            <div className="pageTitle">Explore Community</div>
+            <div className="pageDescription">Discover the wonders of the world | Adventure awaits just around the corner</div>
+            <div className='col-sm-2'>
+                <select className='form-select' name='continent' value={continent} onChange={handleChange}>
+                    <option value="All">All Posts</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                    <option value="Ocienia">Oceania</option>
+                    <option value="Antarctic">Antarctic</option>
+                </select>
             </div>
-            
+
+            <div className="main-content">
+                <div className="row communityBlogCard">
+                    {showCards}
+                </div>
+            </div>
+            <Footer />
         </div>
-        <Footer />
-    </div>
     )
 }
 

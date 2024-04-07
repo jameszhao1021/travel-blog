@@ -25,8 +25,7 @@ function GalleryCard({ gallery, index, user }) {
 
 
     return (
-        <>
-                <div className="col-4 my-2 py-3 px-4">
+                <div className="col-xl-4 col-lg-6 my-2 py-3 px-4">
                     <div className="card-custom">
                         <img className="gallery-image" src={gallery.preview} alt="Card image" />
 
@@ -47,7 +46,6 @@ function GalleryCard({ gallery, index, user }) {
                         </div> 
                     </div>
                 </div>
-        </>
     )
 }
 export default GalleryCard;
